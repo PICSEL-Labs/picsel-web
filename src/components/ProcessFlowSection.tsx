@@ -19,7 +19,7 @@ export default function ProcessFlowSection() {
             <div className="relative" style={{ height: 260 }}>
               {/* Wave SVG */}
               <svg
-                className="absolute top-0 left-0 right-0 w-full"
+                className="absolute top-0 right-0 left-0 w-full"
                 height="200"
                 viewBox="0 0 1080 200"
                 preserveAspectRatio="none"
@@ -39,11 +39,11 @@ export default function ProcessFlowSection() {
                   className="absolute flex flex-col items-center"
                   style={{ left: positions[i], top: item.top }}
                 >
-                  <div className="relative w-10 h-10 flex items-center justify-center text-[24px]">
-                    <div className="absolute w-6 h-6 bg-primary/30 rounded-full blur-sm" />
+                  <div className="relative flex h-10 w-10 items-center justify-center text-[24px]">
+                    <div className="bg-primary/30 absolute h-6 w-6 rounded-full blur-sm" />
                     <span className="relative z-10">{item.icon}</span>
                   </div>
-                  <span className="mt-1 text-[14px] font-medium text-text-secondary whitespace-nowrap">
+                  <span className="text-text-secondary mt-1 text-[14px] font-medium whitespace-nowrap">
                     {item.label}
                   </span>
                 </div>
@@ -53,15 +53,15 @@ export default function ProcessFlowSection() {
         </div>
 
         {/* Mobile/Tablet: flex layout */}
-        <div className="lg:hidden px-6 py-12">
-          <div className="flex justify-between items-center max-w-125 mx-auto">
+        <div className="px-6 py-12 lg:hidden">
+          <div className="mx-auto flex max-w-125 items-center justify-between">
             {items.map((item) => (
               <div key={item.label} className="flex flex-col items-center">
-                <div className="relative w-9 h-9 flex items-center justify-center text-[20px]">
-                  <div className="absolute w-5 h-5 bg-primary/30 rounded-full blur-[6px]" />
+                <div className="relative flex h-9 w-9 items-center justify-center text-[20px]">
+                  <div className="bg-primary/30 absolute h-5 w-5 rounded-full blur-[6px]" />
                   <span className="relative z-10">{item.icon}</span>
                 </div>
-                <span className="mt-1 text-[11px] sm:text-[12px] font-medium text-text-secondary whitespace-nowrap">
+                <span className="text-text-secondary mt-1 text-[11px] font-medium whitespace-nowrap sm:text-[12px]">
                   {item.label}
                 </span>
               </div>

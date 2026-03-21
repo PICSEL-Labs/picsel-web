@@ -8,29 +8,29 @@
 
   /* --- 브랜드 컬러 --- */
   /* 서비스 주요 액센트 컬러 (핑크 계열) */
-  --color-primary: #FF2D78;
-  --color-primary-light: #FF6BA0;
-  --color-primary-dark: #E0195F;
+  --color-primary: #ff2d78;
+  --color-primary-light: #ff6ba0;
+  --color-primary-dark: #e0195f;
 
   /* --- 배경 컬러 --- */
   /* 다크 테마 기반 배경색 */
   --color-bg-dark: #111111;
-  --color-bg-darker: #0A0A0A;
-  --color-bg-card: #1C1C1E;
+  --color-bg-darker: #0a0a0a;
+  --color-bg-card: #1c1c1e;
 
   /* --- 텍스트 컬러 --- */
   --color-text-primary: #111111;
   --color-text-secondary: #666666;
-  --color-text-white: #FFFFFF;
+  --color-text-white: #ffffff;
   --color-text-gray: #999999;
-  --color-text-light-gray: #BBBBBB;
+  --color-text-light-gray: #bbbbbb;
 
   /* --- 보더 컬러 --- */
-  --color-border: #E5E5E5;
-  --color-border-dark: #2A2A2A;
+  --color-border: #e5e5e5;
+  --color-border-dark: #2a2a2a;
 
   /* --- 타이포그래피 --- */
-  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 
   /* --- 레이아웃 --- */
   /* 페이지 양옆 패딩: 모바일 24px / 데스크탑(lg) 64px */
@@ -42,38 +42,48 @@
 }
 
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff")
+    format("woff");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff")
+    format("woff");
   font-weight: 800;
   font-style: normal;
 }
 
-* { margin: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: var(--font-sans);
   color: var(--color-text-primary);
@@ -81,31 +91,62 @@ body {
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
 
 .gradient-text {
-  background: linear-gradient(135deg, #FF2D78, #FF8FB5);
+  background: linear-gradient(135deg, #ff2d78, #ff8fb5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.9); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
 }
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.animate-twinkle { animation: twinkle 2.5s ease-in-out infinite; }
-.animate-float { animation: float 3s ease-in-out infinite; }
-.animate-scroll { animation: scroll-left 25s linear infinite; }
-.animate-scroll:hover { animation-play-state: paused; }
+.animate-twinkle {
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-scroll {
+  animation: scroll-left 25s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

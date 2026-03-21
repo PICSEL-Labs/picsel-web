@@ -64,10 +64,10 @@ const features = [
 
 function PhoneMockup({ label }: { label: string }) {
   return (
-    <div className="w-55 lg:w-75 shrink-0">
-      <div className="relative w-55 lg:w-75 h-112.5 lg:h-153.5 bg-[#1A1A1A] rounded-8 lg:rounded-11 border-[5px] lg:border-[6px] border-[#333] overflow-hidden shadow-2xl">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 lg:w-25 h-5.5 lg:h-7 bg-[#333] rounded-b-3 lg:rounded-b-3.5 z-10" />
-        <div className="w-full h-full bg-linear-to-b from-[#222] to-[#111] flex items-center justify-center rounded-6.75 lg:rounded-9.5">
+    <div className="w-55 shrink-0 lg:w-75">
+      <div className="rounded-8 lg:rounded-11 relative h-112.5 w-55 overflow-hidden border-[5px] border-[#333] bg-[#1A1A1A] shadow-2xl lg:h-153.5 lg:w-75 lg:border-[6px]">
+        <div className="rounded-b-3 lg:rounded-b-3.5 absolute top-0 left-1/2 z-10 h-5.5 w-20 -translate-x-1/2 bg-[#333] lg:h-7 lg:w-25" />
+        <div className="rounded-6.75 lg:rounded-9.5 flex h-full w-full items-center justify-center bg-linear-to-b from-[#222] to-[#111]">
           <span className="text-text-gray text-[12px] lg:text-[13px]">{label}</span>
         </div>
       </div>
@@ -83,20 +83,19 @@ export default function FeaturesSection() {
     <section className="bg-white pt-15 lg:pt-22.5">
       {/* Dark Banner */}
       <div className="bg-black">
-        <Container className="flex flex-col-reverse lg:flex-row items-center lg:justify-between py-16 lg:py-0 lg:min-h-134.5 gap-8 lg:gap-0">
-          <div className="w-30 h-37 lg:w-55 lg:h-67.75">
+        <Container className="flex flex-col-reverse items-center gap-8 py-16 lg:min-h-134.5 lg:flex-row lg:justify-between lg:gap-0 lg:py-0">
+          <div className="h-37 w-30 lg:h-67.75 lg:w-55">
             <TwinkleStar />
           </div>
-          <div className="text-center lg:text-right max-w-129.25">
-            <h2 className="text-[24px] sm:text-[28px] lg:text-[36px] font-bold text-white leading-9.5 sm:leading-11 lg:leading-14">
+          <div className="max-w-129.25 text-center lg:text-right">
+            <h2 className="text-[24px] leading-9.5 font-bold text-white sm:text-[28px] sm:leading-11 lg:text-[36px] lg:leading-14">
               포토부스를 찾고-찍고-정리까지
               <br />
               픽셀에서 한번에!
             </h2>
-            <p className="mt-4 lg:mt-6 text-[14px] sm:text-[15px] lg:text-[16px] text-text-gray leading-6 lg:leading-7">
+            <p className="text-text-gray mt-4 text-[14px] leading-6 sm:text-[15px] lg:mt-6 lg:text-[16px] lg:leading-7">
               지도 기반 탐색, 날짜와 장소 기록, 보관함 기반 정리로
-              <br />
-              더 쉽고 편하게 포토부스를 찾고 사진을 보관하세요
+              <br />더 쉽고 편하게 포토부스를 찾고 사진을 보관하세요
             </p>
           </div>
         </Container>
@@ -104,18 +103,18 @@ export default function FeaturesSection() {
 
       {/* Tab Bar */}
       <Container>
-        <div className="flex border-b-2 border-border">
+        <div className="border-border flex border-b-2">
           {tabs.map((tab, i) => (
             <button
               key={tab}
               onClick={() => setActiveTab(i)}
-              className={`flex-1 py-3.5 lg:py-5 text-center text-[14px] lg:text-[18px] font-semibold transition-all relative ${
+              className={`relative flex-1 py-3.5 text-center text-[14px] font-semibold transition-all lg:py-5 lg:text-[18px] ${
                 activeTab === i ? "text-primary" : "text-text-gray hover:text-text-secondary"
               }`}
             >
               {tab}
               {activeTab === i && (
-                <div className="absolute -bottom-0.5 left-0 right-0 h-0.75 bg-primary" />
+                <div className="bg-primary absolute right-0 -bottom-0.5 left-0 h-0.75" />
               )}
             </button>
           ))}
@@ -127,44 +126,46 @@ export default function FeaturesSection() {
         {feature.sections.map((section, i) => (
           <div key={`${activeTab}-${i}`}>
             {section.sectionHeadline && (
-              <div className="text-center pt-15 lg:pt-40 pb-10 lg:pb-20">
-                <h3 className="text-[24px] sm:text-[32px] lg:text-[48px] font-bold leading-9.5 sm:leading-12 lg:leading-16.75">
-                  {section.sectionHeadline.split(section.highlightWords || "").map((part, j, arr) => (
-                    <span key={j}>
-                      {part}
-                      {j < arr.length - 1 && (
-                        <span className="text-primary">{section.highlightWords}</span>
-                      )}
-                    </span>
-                  ))}
+              <div className="pt-15 pb-10 text-center lg:pt-40 lg:pb-20">
+                <h3 className="text-[24px] leading-9.5 font-bold sm:text-[32px] sm:leading-12 lg:text-[48px] lg:leading-16.75">
+                  {section.sectionHeadline
+                    .split(section.highlightWords || "")
+                    .map((part, j, arr) => (
+                      <span key={j}>
+                        {part}
+                        {j < arr.length - 1 && (
+                          <span className="text-primary">{section.highlightWords}</span>
+                        )}
+                      </span>
+                    ))}
                 </h3>
-                <div className="flex justify-center mt-1.5">
-                  <div className="w-50 lg:w-75 h-0.75 bg-linear-to-r from-transparent via-primary/40 to-transparent" />
+                <div className="mt-1.5 flex justify-center">
+                  <div className="via-primary/40 h-0.75 w-50 bg-linear-to-r from-transparent to-transparent lg:w-75" />
                 </div>
               </div>
             )}
 
             <div
-              className={`flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-20 pb-15 lg:pb-30 ${
+              className={`flex flex-col items-center gap-8 pb-15 lg:flex-row lg:items-start lg:gap-20 lg:pb-30 ${
                 i % 2 !== 0 ? "lg:flex-row-reverse" : ""
               }`}
             >
               <PhoneMockup label={section.tag} />
-              <div className="flex-1 text-center lg:text-left pt-0 lg:pt-5">
-                <span className="inline-block px-5 lg:px-6 py-1.5 lg:py-2 bg-black text-white text-[13px] lg:text-[14px] font-medium rounded-full">
+              <div className="flex-1 pt-0 text-center lg:pt-5 lg:text-left">
+                <span className="inline-block rounded-full bg-black px-5 py-1.5 text-[13px] font-medium text-white lg:px-6 lg:py-2 lg:text-[14px]">
                   {section.tag}
                 </span>
-                <h4 className="text-[22px] sm:text-[28px] lg:text-[36px] font-bold leading-8.5 sm:leading-11 lg:leading-14 mt-4 lg:mt-6 whitespace-pre-line">
+                <h4 className="mt-4 text-[22px] leading-8.5 font-bold whitespace-pre-line sm:text-[28px] sm:leading-11 lg:mt-6 lg:text-[36px] lg:leading-14">
                   {section.headline}
                 </h4>
-                <p className="text-[14px] lg:text-[16px] text-text-secondary mt-3 lg:mt-6 leading-6 lg:leading-7">
+                <p className="text-text-secondary mt-3 text-[14px] leading-6 lg:mt-6 lg:text-[16px] lg:leading-7">
                   {section.body}
                 </p>
               </div>
             </div>
 
             {i < feature.sections.length - 1 && !feature.sections[i + 1].sectionHeadline && (
-              <div className="border-t border-border my-5" />
+              <div className="border-border my-5 border-t" />
             )}
           </div>
         ))}
