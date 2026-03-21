@@ -12,7 +12,7 @@ export default function ProcessFlowSection() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="bg-gradient-to-b from-white to-[#FFD6E8]">
+      <div className="bg-linear-to-b from-white to-[#FFD6E8]">
         {/* Desktop: percentage-based positioning */}
         <div className="hidden lg:block">
           <Container className="relative">
@@ -39,11 +39,11 @@ export default function ProcessFlowSection() {
                   className="absolute flex flex-col items-center"
                   style={{ left: positions[i], top: item.top }}
                 >
-                  <div className="relative w-10 h-10 flex items-center justify-center text-[24px]">
-                    <div className="absolute w-6 h-6 bg-primary/30 rounded-full blur-[8px]" />
+                  <div className="relative w-10 h-10 flex items-center justify-center text-6">
+                    <div className="absolute w-6 h-6 bg-primary/30 rounded-full blur-sm" />
                     <span className="relative z-10">{item.icon}</span>
                   </div>
-                  <span className="mt-1 text-[14px] font-medium text-text-secondary whitespace-nowrap">
+                  <span className="mt-1 text-3.5 font-medium text-text-secondary whitespace-nowrap">
                     {item.label}
                   </span>
                 </div>
@@ -57,11 +57,11 @@ export default function ProcessFlowSection() {
           <div className="flex justify-between items-center max-w-125 mx-auto">
             {items.map((item) => (
               <div key={item.label} className="flex flex-col items-center">
-                <div className="relative w-9 h-9 flex items-center justify-center text-[20px]">
+                <div className="relative w-9 h-9 flex items-center justify-center text-5">
                   <div className="absolute w-5 h-5 bg-primary/30 rounded-full blur-[6px]" />
                   <span className="relative z-10">{item.icon}</span>
                 </div>
-                <span className="mt-1 text-[11px] sm:text-[12px] font-medium text-text-secondary whitespace-nowrap">
+                <span className="mt-1 text-2.75 sm:text-3 font-medium text-text-secondary whitespace-nowrap">
                   {item.label}
                 </span>
               </div>
