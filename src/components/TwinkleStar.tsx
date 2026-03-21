@@ -1,13 +1,13 @@
 export default function TwinkleStar({
-  size = 340,
+  size,
   className = "",
 }: {
   size?: number;
   className?: string;
 }) {
-  const h = size * 1.23;
+  const style = size ? { width: size, height: size * 1.23 } : undefined;
   return (
-    <div className={`relative ${className}`} style={{ width: size, height: h }}>
+    <div className={`relative ${!size ? "w-full h-full" : ""} ${className}`} style={style}>
       {/* Main 4-point star */}
       <svg viewBox="0 0 340 418" fill="none" className="w-full h-full">
         <defs>

@@ -1,7 +1,9 @@
+import Container from "./Container";
+
 export default function Footer() {
   return (
     <footer className="bg-white border-t border-border">
-      <div className="w-[1280px] mx-auto px-[100px]">
+      <Container>
         {/* Top links */}
         <div className="flex gap-[24px] py-[14px]">
           <button className="text-[14px] text-text-primary hover:text-primary transition-colors px-[8px]">
@@ -13,8 +15,7 @@ export default function Footer() {
         </div>
 
         {/* Main */}
-        <div className="flex justify-between items-start py-[14px]">
-          {/* Left */}
+        <div className="flex flex-col sm:flex-row justify-between items-start gap-6 py-[14px]">
           <div>
             <span className="text-[18px] font-extrabold text-primary">PICSEL</span>
             <p className="mt-[16px] text-[14px] text-text-secondary leading-[26px]">
@@ -22,7 +23,6 @@ export default function Footer() {
               <br />내가 만든 순간을 남기다
             </p>
           </div>
-          {/* Right */}
           <div>
             <h4 className="text-[14px] font-semibold text-text-primary mb-[16px]">문의</h4>
             <div className="space-y-[12px]">
@@ -46,9 +46,9 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-border py-[24px] text-center">
-          <p className="text-[13px] text-text-gray">© 2026 픽셀. All rights reserved.</p>
+          <p className="text-[13px] text-text-gray">&copy; 2026 픽셀. All rights reserved.</p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
