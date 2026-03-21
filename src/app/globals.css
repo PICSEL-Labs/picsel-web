@@ -1,20 +1,44 @@
 @import "tailwindcss";
 
 @theme inline {
+  /* ==========================================
+   * PICSEL 디자인 시스템
+   * Figma 디자인 토큰 기반 테마 설정
+   * ========================================== */
+
+  /* --- 브랜드 컬러 --- */
+  /* 서비스 주요 액센트 컬러 (핑크 계열) */
   --color-primary: #FF2D78;
   --color-primary-light: #FF6BA0;
   --color-primary-dark: #E0195F;
+
+  /* --- 배경 컬러 --- */
+  /* 다크 테마 기반 배경색 */
   --color-bg-dark: #111111;
   --color-bg-darker: #0A0A0A;
   --color-bg-card: #1C1C1E;
+
+  /* --- 텍스트 컬러 --- */
   --color-text-primary: #111111;
   --color-text-secondary: #666666;
   --color-text-white: #FFFFFF;
   --color-text-gray: #999999;
   --color-text-light-gray: #BBBBBB;
+
+  /* --- 보더 컬러 --- */
   --color-border: #E5E5E5;
   --color-border-dark: #2A2A2A;
+
+  /* --- 타이포그래피 --- */
   --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  /* --- 레이아웃 --- */
+  /* 페이지 양옆 패딩: 모바일 24px / 데스크탑(lg) 64px */
+  --spacing-page: 24px;
+  --spacing-page-lg: 64px;
+  /* Navbar 높이: 모바일 60px / 데스크탑(lg) 90px */
+  --height-navbar: 60px;
+  --height-navbar-lg: 90px;
 }
 
 @font-face {
@@ -48,7 +72,7 @@
   font-style: normal;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-sans);
