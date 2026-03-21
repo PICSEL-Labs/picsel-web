@@ -1,6 +1,6 @@
 import Container from "./Container";
 
-export default function QuestionSection() {
+export default function EmpathySection() {
   return (
     <section className="bg-white">
       <Container className="py-[100px] lg:py-[200px] text-center">

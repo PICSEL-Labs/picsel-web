@@ -1,6 +1,6 @@
 import Container from "./Container";
 
-export default function FeatureIntroSection() {
+export default function FeatureBridgeSection() {
   return (
     <section className="bg-gradient-to-b from-[#FFB6D3] to-[#FFC8DC]">
       <Container className="py-[80px] lg:py-[160px] text-center">

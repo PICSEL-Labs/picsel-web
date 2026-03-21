@@ -1,6 +1,6 @@
 import Container from "./Container";
 
-export default function CTASection() {
+export default function AppealSection() {
   return (
     <section className="bg-gradient-to-b from-[#FFD6E8] to-[#FFB6D3]">
       <Container className="py-[80px] lg:py-[120px] text-center">

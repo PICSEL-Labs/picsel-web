@@ -1,7 +1,7 @@
 import Container from "./Container";
 import TwinkleStar from "./TwinkleStar";
 
-export default function HeroSection() {
+export default function MainBannerSection() {
   return (
     <section className="bg-black pt-navbar lg:pt-navbar-lg">
       <Container className="flex flex-col lg:flex-row lg:items-center lg:justify-between py-12 lg:py-0 lg:min-h-[444px]">

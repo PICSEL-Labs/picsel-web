@@ -1,6 +1,6 @@
 import Container from "./Container";
 
-export default function FeatureIconsSection() {
+export default function ProcessFlowSection() {
   const items = [
     { icon: "📍", label: "포토부스 검색", top: 112 },
     { icon: "📸", label: "사진 촬영", top: 94 },

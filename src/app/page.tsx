@@ -1,21 +1,21 @@
-import HeroSection from "@/components/HeroSection";
+import MainBannerSection from "@/components/MainBannerSection";
 import MeaningSection from "@/components/MeaningSection";
 import PainpointSection from "@/components/PainpointSection";
-import QuestionSection from "@/components/QuestionSection";
-import FeatureIconsSection from "@/components/FeatureIconsSection";
-import CTASection from "@/components/CTASection";
-import FeatureIntroSection from "@/components/FeatureIntroSection";
+import EmpathySection from "@/components/EmpathySection";
+import ProcessFlowSection from "@/components/ProcessFlowSection";
+import AppealSection from "@/components/AppealSection";
+import FeatureBridgeSection from "@/components/FeatureBridgeSection";
 
 export default function IntroPage() {
   return (
     <>
-      <HeroSection />
+      <MainBannerSection />
       <MeaningSection />
       <PainpointSection />
-      <QuestionSection />
-      <FeatureIconsSection />
-      <CTASection />
-      <FeatureIntroSection />
+      <EmpathySection />
+      <ProcessFlowSection />
+      <AppealSection />
+      <FeatureBridgeSection />
     </>
   );
 }
