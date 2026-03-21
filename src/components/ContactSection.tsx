@@ -34,19 +34,19 @@ export default function ContactSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section className="bg-white pt-[60px] lg:pt-[90px]">
+    <section className="bg-white pt-15 lg:pt-22.5">
       {/* Dark Banner */}
       <div className="bg-black">
-        <Container className="py-[60px] lg:py-[80px] flex flex-col items-center">
-          <div className="relative w-[200px] lg:w-[260px] h-[160px] lg:h-[200px] mb-[16px]">
-            <div className="absolute top-[10px] left-[40px] w-[50px] h-[38px] bg-primary/40 rounded-[20px]" />
-            <div className="absolute top-[0px] right-[30px] w-[42px] h-[32px] bg-primary/30 rounded-[16px]" />
-            <div className="absolute bottom-[20px] right-[20px] w-[55px] h-[40px] bg-primary/35 rounded-[20px]" />
-            <div className="absolute bottom-[30px] left-[20px] w-[45px] h-[35px] bg-primary/25 rounded-[18px]" />
+        <Container className="py-15 lg:py-20 flex flex-col items-center">
+          <div className="relative w-50 lg:w-65 h-40 lg:h-50 mb-4">
+            <div className="absolute top-2.5 left-10 w-12.5 h-9.5 bg-primary/40 rounded-5" />
+            <div className="absolute top-0 right-7.5 w-10.5 h-8 bg-primary/30 rounded-4" />
+            <div className="absolute bottom-5 right-5 w-[55px] h-10 bg-primary/35 rounded-5" />
+            <div className="absolute bottom-7.5 left-5 w-[45px] h-[35px] bg-primary/25 rounded-4.5" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
               <div className="relative">
-                <div className="w-[100px] lg:w-[120px] h-[100px] lg:h-[120px] rounded-[24px] bg-primary/25 rotate-[8deg]" />
-                <div className="absolute top-[4px] left-[4px] w-[100px] lg:w-[120px] h-[100px] lg:h-[120px] rounded-[24px] bg-primary/15 -rotate-[8deg]" />
+                <div className="w-25 lg:w-30 h-25 lg:h-30 rounded-6 bg-primary/25 rotate-[8deg]" />
+                <div className="absolute top-1 left-1 w-25 lg:w-30 h-25 lg:h-30 rounded-6 bg-primary/15 -rotate-[8deg]" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[48px] lg:text-[56px] z-10">❓</div>
               </div>
             </div>
@@ -57,12 +57,12 @@ export default function ContactSection() {
 
       <Container>
         {/* Category Tabs */}
-        <div className="flex justify-center gap-[8px] lg:gap-[12px] pt-[32px] lg:pt-[48px]">
+        <div className="flex justify-center gap-2 lg:gap-3 pt-8 lg:pt-12">
           {categoryTabs.map((tab, i) => (
             <button
               key={tab}
               onClick={() => setActiveCategory(i)}
-              className={`px-[16px] lg:px-[24px] py-[8px] rounded-full text-[13px] lg:text-[14px] font-medium border transition-all ${
+              className={`px-4 lg:px-6 py-2 rounded-full text-[13px] lg:text-[14px] font-medium border transition-all ${
                 activeCategory === i
                   ? "border-black bg-black text-white"
                   : "border-border text-text-secondary hover:border-text-secondary"
@@ -74,41 +74,41 @@ export default function ContactSection() {
         </div>
 
         {activeCategory === 0 && (
-          <div className="py-[32px] lg:py-[40px]">
+          <div className="py-8 lg:py-10">
             <div className="flex border-b-[2px] border-border overflow-x-auto">
               {faqTabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => { setActiveFaqTab(tab); setOpenFaq(null); }}
-                  className={`flex-1 min-w-fit py-[12px] lg:py-[16px] px-2 text-center text-[12px] lg:text-[14px] font-medium transition-all relative whitespace-nowrap ${
+                  className={`flex-1 min-w-fit py-3 lg:py-4 px-2 text-center text-[12px] lg:text-[14px] font-medium transition-all relative whitespace-nowrap ${
                     activeFaqTab === tab ? "text-primary" : "text-text-gray hover:text-text-secondary"
                   }`}
                 >
                   {tab}
                   {activeFaqTab === tab && (
-                    <div className="absolute bottom-[-2px] left-0 right-0 h-[2px] bg-primary" />
+                    <div className="absolute bottom-[-2px] left-0 right-0 h-0.5 bg-primary" />
                   )}
                 </button>
               ))}
             </div>
 
-            <div className="mt-[16px] lg:mt-[24px] space-y-[8px]">
+            <div className="mt-4 lg:mt-6 space-y-2">
               {(faqItems[activeFaqTab] || []).map((item, i) => (
-                <div key={i} className="border border-border rounded-[12px] overflow-hidden">
+                <div key={i} className="border border-border rounded-3 overflow-hidden">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full px-[20px] lg:px-[32px] py-[16px] lg:py-[24px] flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                    className="w-full px-5 lg:px-8 py-4 lg:py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                   >
                     <span className="text-[14px] lg:text-[16px] text-text-primary">{item.question}</span>
                     <svg
-                      className={`w-[18px] h-[18px] lg:w-[20px] lg:h-[20px] text-text-gray transition-transform flex-shrink-0 ml-4 ${openFaq === i ? "rotate-180" : ""}`}
+                      className={`w-4.5 h-4.5 lg:w-5 lg:h-5 text-text-gray transition-transform flex-shrink-0 ml-4 ${openFaq === i ? "rotate-180" : ""}`}
                       fill="none" viewBox="0 0 24 24" stroke="currentColor"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
                   {openFaq === i && (
-                    <div className="px-[20px] lg:px-[32px] pb-[16px] lg:pb-[24px] text-[13px] lg:text-[14px] text-text-secondary leading-[22px] lg:leading-[24px]">
+                    <div className="px-5 lg:px-8 pb-4 lg:pb-6 text-[13px] lg:text-[14px] text-text-secondary leading-5.5 lg:leading-6">
                       {item.answer}
                     </div>
                   )}
@@ -118,17 +118,17 @@ export default function ContactSection() {
           </div>
         )}
 
-        <div className="pb-[48px] lg:pb-[64px]">
-          <div className="bg-[#F8F8F8] rounded-[16px] px-[20px] lg:px-[40px] py-[20px] lg:py-[28px]">
-            <p className="text-[13px] lg:text-[14px] text-text-secondary leading-[22px] lg:leading-[24px]">
+        <div className="pb-12 lg:pb-16">
+          <div className="bg-[#F8F8F8] rounded-4 px-5 lg:px-10 py-5 lg:py-7">
+            <p className="text-[13px] lg:text-[14px] text-text-secondary leading-5.5 lg:leading-6">
               픽셀 이용 중 불편한 점이나 궁금한 사항이 있다면 아래 구글폼을 작성하시거나,{" "}
               <span className="text-primary font-medium">picsel.team@gmail.com</span> 으로 언제든지 문의주세요.
               <br />확인 후 빠르게 답변드리겠습니다.
             </p>
-            <p className="text-[13px] lg:text-[14px] text-text-secondary mt-[12px]">
+            <p className="text-[13px] lg:text-[14px] text-text-secondary mt-3">
               보내주신 의견을 바탕으로 더 나은 픽셀을 만들어가겠습니다!
             </p>
-            <p className="text-[13px] lg:text-[14px] text-text-secondary mt-[12px]">
+            <p className="text-[13px] lg:text-[14px] text-text-secondary mt-3">
               픽셀이 도움이 되셨다면 앱스토어에서 평점과 후기를 남겨주세요.
               <br />여러분의 관심과 응원이 픽셀에게 큰 힘이 됩니다. 감사합니다💗
             </p>
