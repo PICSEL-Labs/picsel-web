@@ -47,11 +47,11 @@ export default function ContactSection() {
               <div className="relative">
                 <div className="w-25 lg:w-30 h-25 lg:h-30 rounded-6 bg-primary/25 rotate-[8deg]" />
                 <div className="absolute top-1 left-1 w-25 lg:w-30 h-25 lg:h-30 rounded-6 bg-primary/15 -rotate-[8deg]" />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-12 lg:text-14 z-10">❓</div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[48px] lg:text-[56px] z-10">❓</div>
               </div>
             </div>
           </div>
-          <h2 className="text-7 lg:text-9 font-bold text-primary">PICSEL 문의</h2>
+          <h2 className="text-[28px] lg:text-[36px] font-bold text-primary">PICSEL 문의</h2>
         </Container>
       </div>
 
@@ -62,7 +62,7 @@ export default function ContactSection() {
             <button
               key={tab}
               onClick={() => setActiveCategory(i)}
-              className={`px-4 lg:px-6 py-2 rounded-full text-3.25 lg:text-3.5 font-medium border transition-all ${
+              className={`px-4 lg:px-6 py-2 rounded-full text-[13px] lg:text-[14px] font-medium border transition-all ${
                 activeCategory === i
                   ? "border-black bg-black text-white"
                   : "border-border text-text-secondary hover:border-text-secondary"
@@ -80,7 +80,7 @@ export default function ContactSection() {
                 <button
                   key={tab}
                   onClick={() => { setActiveFaqTab(tab); setOpenFaq(null); }}
-                  className={`flex-1 min-w-fit py-3 lg:py-4 px-2 text-center text-3 lg:text-3.5 font-medium transition-all relative whitespace-nowrap ${
+                  className={`flex-1 min-w-fit py-3 lg:py-4 px-2 text-center text-[12px] lg:text-[14px] font-medium transition-all relative whitespace-nowrap ${
                     activeFaqTab === tab ? "text-primary" : "text-text-gray hover:text-text-secondary"
                   }`}
                 >
@@ -99,7 +99,7 @@ export default function ContactSection() {
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                     className="w-full px-5 lg:px-8 py-4 lg:py-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
                   >
-                    <span className="text-3.5 lg:text-4 text-text-primary">{item.question}</span>
+                    <span className="text-[14px] lg:text-[16px] text-text-primary">{item.question}</span>
                     <svg
                       className={`w-4.5 h-4.5 lg:w-5 lg:h-5 text-text-gray transition-transform shrink-0 ml-4 ${openFaq === i ? "rotate-180" : ""}`}
                       fill="none" viewBox="0 0 24 24" stroke="currentColor"
@@ -108,7 +108,7 @@ export default function ContactSection() {
                     </svg>
                   </button>
                   {openFaq === i && (
-                    <div className="px-5 lg:px-8 pb-4 lg:pb-6 text-3.25 lg:text-3.5 text-text-secondary leading-5.5 lg:leading-6">
+                    <div className="px-5 lg:px-8 pb-4 lg:pb-6 text-[13px] lg:text-[14px] text-text-secondary leading-5.5 lg:leading-6">
                       {item.answer}
                     </div>
                   )}
@@ -120,15 +120,15 @@ export default function ContactSection() {
 
         <div className="pb-12 lg:pb-16">
           <div className="bg-[#F8F8F8] rounded-4 px-5 lg:px-10 py-5 lg:py-7">
-            <p className="text-3.25 lg:text-3.5 text-text-secondary leading-5.5 lg:leading-6">
+            <p className="text-[13px] lg:text-[14px] text-text-secondary leading-5.5 lg:leading-6">
               픽셀 이용 중 불편한 점이나 궁금한 사항이 있다면 아래 구글폼을 작성하시거나,{" "}
               <span className="text-primary font-medium">picsel.team@gmail.com</span> 으로 언제든지 문의주세요.
               <br />확인 후 빠르게 답변드리겠습니다.
             </p>
-            <p className="text-3.25 lg:text-3.5 text-text-secondary mt-3">
+            <p className="text-[13px] lg:text-[14px] text-text-secondary mt-3">
               보내주신 의견을 바탕으로 더 나은 픽셀을 만들어가겠습니다!
             </p>
-            <p className="text-3.25 lg:text-3.5 text-text-secondary mt-3">
+            <p className="text-[13px] lg:text-[14px] text-text-secondary mt-3">
               픽셀이 도움이 되셨다면 앱스토어에서 평점과 후기를 남겨주세요.
               <br />여러분의 관심과 응원이 픽셀에게 큰 힘이 됩니다. 감사합니다💗
             </p>

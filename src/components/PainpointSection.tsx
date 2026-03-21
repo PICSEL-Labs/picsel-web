@@ -18,10 +18,10 @@ export default function PainpointSection() {
               key={i}
               className="w-60 lg:w-76.25 h-35 lg:h-42 bg-bg-card rounded-5 flex flex-col items-center justify-center px-4 lg:px-6 shrink-0"
             >
-              <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-2.5 bg-[#2C2C2E] flex items-center justify-center text-5 lg:text-5.5 mb-2">
+              <div className="w-9 h-9 lg:w-10 lg:h-10 rounded-2.5 bg-[#2C2C2E] flex items-center justify-center text-[20px] lg:text-[22px] mb-2">
                 {item.emoji}
               </div>
-              <p className="text-3 lg:text-3.5 text-text-light-gray text-center leading-5 lg:leading-6 whitespace-pre-line">
+              <p className="text-[12px] lg:text-[14px] text-text-light-gray text-center leading-5 lg:leading-6 whitespace-pre-line">
                 {item.text}
                 {item.highlight && (
                   <span className="text-primary font-semibold">{item.highlight}</span>

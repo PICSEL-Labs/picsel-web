@@ -36,7 +36,7 @@ export default function Navbar() {
           <svg width="20" height="28" viewBox="0 0 20 28" fill="none">
             <path d="M10 0C10.5 8 14 12 20 14C14 16 10.5 20 10 28C9.5 20 6 16 0 14C6 12 9.5 8 10 0Z" fill="#FF2D78"/>
           </svg>
-          <span className="text-5 lg:text-5.5 font-extrabold tracking-tight text-primary">
+          <span className="text-[20px] lg:text-[22px] font-extrabold tracking-tight text-primary">
             PICSEL
           </span>
         </Link>
@@ -47,7 +47,7 @@ export default function Navbar() {
             <Link
               key={item.label}
               href={item.href}
-              className={`text-4 font-medium transition-colors ${
+              className={`text-[16px] font-medium transition-colors ${
                 pathname === item.href
                   ? "text-text-white"
                   : "text-text-white/80 hover:text-text-white"
@@ -82,7 +82,7 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block py-3 text-4 font-medium transition-colors ${
+                className={`block py-3 text-[16px] font-medium transition-colors ${
                   pathname === item.href
                     ? "text-primary"
                     : "text-text-white/80 hover:text-text-white"

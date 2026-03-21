@@ -68,7 +68,7 @@ function PhoneMockup({ label }: { label: string }) {
       <div className="relative w-55 lg:w-75 h-112.5 lg:h-153.5 bg-[#1A1A1A] rounded-8 lg:rounded-11 border-[5px] lg:border-[6px] border-[#333] overflow-hidden shadow-2xl">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 lg:w-25 h-5.5 lg:h-7 bg-[#333] rounded-b-3 lg:rounded-b-3.5 z-10" />
         <div className="w-full h-full bg-linear-to-b from-[#222] to-[#111] flex items-center justify-center rounded-6.75 lg:rounded-9.5">
-          <span className="text-text-gray text-3 lg:text-3.25">{label}</span>
+          <span className="text-text-gray text-[12px] lg:text-[13px]">{label}</span>
         </div>
       </div>
     </div>
@@ -88,12 +88,12 @@ export default function FeaturesSection() {
             <TwinkleStar />
           </div>
           <div className="text-center lg:text-right max-w-129.25">
-            <h2 className="text-6 sm:text-7 lg:text-9 font-bold text-white leading-9.5 sm:leading-11 lg:leading-14">
+            <h2 className="text-[24px] sm:text-[28px] lg:text-[36px] font-bold text-white leading-9.5 sm:leading-11 lg:leading-14">
               포토부스를 찾고-찍고-정리까지
               <br />
               픽셀에서 한번에!
             </h2>
-            <p className="mt-4 lg:mt-6 text-3.5 sm:text-3.75 lg:text-4 text-text-gray leading-6 lg:leading-7">
+            <p className="mt-4 lg:mt-6 text-[14px] sm:text-[15px] lg:text-[16px] text-text-gray leading-6 lg:leading-7">
               지도 기반 탐색, 날짜와 장소 기록, 보관함 기반 정리로
               <br />
               더 쉽고 편하게 포토부스를 찾고 사진을 보관하세요
@@ -109,7 +109,7 @@ export default function FeaturesSection() {
             <button
               key={tab}
               onClick={() => setActiveTab(i)}
-              className={`flex-1 py-3.5 lg:py-5 text-center text-3.5 lg:text-4.5 font-semibold transition-all relative ${
+              className={`flex-1 py-3.5 lg:py-5 text-center text-[14px] lg:text-[18px] font-semibold transition-all relative ${
                 activeTab === i ? "text-primary" : "text-text-gray hover:text-text-secondary"
               }`}
             >
@@ -128,7 +128,7 @@ export default function FeaturesSection() {
           <div key={`${activeTab}-${i}`}>
             {section.sectionHeadline && (
               <div className="text-center pt-15 lg:pt-40 pb-10 lg:pb-20">
-                <h3 className="text-6 sm:text-8 lg:text-12 font-bold leading-9.5 sm:leading-12 lg:leading-16.75">
+                <h3 className="text-[24px] sm:text-[32px] lg:text-[48px] font-bold leading-9.5 sm:leading-12 lg:leading-16.75">
                   {section.sectionHeadline.split(section.highlightWords || "").map((part, j, arr) => (
                     <span key={j}>
                       {part}
@@ -151,13 +151,13 @@ export default function FeaturesSection() {
             >
               <PhoneMockup label={section.tag} />
               <div className="flex-1 text-center lg:text-left pt-0 lg:pt-5">
-                <span className="inline-block px-5 lg:px-6 py-1.5 lg:py-2 bg-black text-white text-3.25 lg:text-3.5 font-medium rounded-full">
+                <span className="inline-block px-5 lg:px-6 py-1.5 lg:py-2 bg-black text-white text-[13px] lg:text-[14px] font-medium rounded-full">
                   {section.tag}
                 </span>
-                <h4 className="text-5.5 sm:text-7 lg:text-9 font-bold leading-8.5 sm:leading-11 lg:leading-14 mt-4 lg:mt-6 whitespace-pre-line">
+                <h4 className="text-[22px] sm:text-[28px] lg:text-[36px] font-bold leading-8.5 sm:leading-11 lg:leading-14 mt-4 lg:mt-6 whitespace-pre-line">
                   {section.headline}
                 </h4>
-                <p className="text-3.5 lg:text-4 text-text-secondary mt-3 lg:mt-6 leading-6 lg:leading-7">
+                <p className="text-[14px] lg:text-[16px] text-text-secondary mt-3 lg:mt-6 leading-6 lg:leading-7">
                   {section.body}
                 </p>
               </div>
