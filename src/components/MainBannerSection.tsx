@@ -8,7 +8,7 @@ export default function MainBannerSection() {
   return (
     <section className="pt-navbar lg:pt-navbar-lg bg-black">
       <Container className="flex flex-col py-12 lg:min-h-111 lg:flex-row lg:items-center lg:justify-between lg:py-0">
-        <div className="relative z-10 pr-32.5 lg:pr-0">
+        <div className="relative z-10 pr-16 sm:pr-24 lg:pr-0">
           <motion.h1
             className="text-[24px] leading-9.5 font-bold text-white sm:text-[28px] sm:leading-11 lg:text-[36px] lg:leading-14"
             initial={{ opacity: 0, y: 30 }}
