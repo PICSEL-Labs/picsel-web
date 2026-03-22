@@ -98,11 +98,16 @@ export default function TeamSection() {
                     scale: 1.02,
                     borderColor: "rgba(255, 45, 120, 0.5)",
                   }}
+                  whileTap={{
+                    scale: 0.98,
+                    borderColor: "rgba(255, 45, 120, 0.5)",
+                  }}
                   transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                   <motion.div
                     className="rounded-4 flex h-30 w-30 shrink-0 items-center justify-center bg-[#2C2C2E] sm:h-40 sm:w-40 lg:h-60 lg:w-60"
                     whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.95 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   >
                     <span className="text-[48px] sm:text-[56px] lg:text-[80px]">
