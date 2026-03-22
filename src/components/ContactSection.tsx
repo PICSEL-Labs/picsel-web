@@ -9,6 +9,27 @@ import StaggerContainer, { staggerChildVariants } from "./StaggerContainer";
 const categoryTabs = ["FAQ", "공지사항", "1:1 문의"];
 const faqTabs = ["지도 검색", "업로드", "찜한 브랜드", "픽셀북", "계정", "기타/제휴"];
 
+const noticeItems = [
+  {
+    date: "2025.03.15",
+    title: "Picsel v1.2.0 업데이트 안내",
+    content:
+      "앨범에서 업로드 기능이 추가되었습니다. 이제 QR 스캔 없이도 갤러리에서 직접 사진을 업로드할 수 있습니다. 또한 픽셀북 공유 기능이 개선되어 더 편리하게 친구들과 공유할 수 있습니다.",
+  },
+  {
+    date: "2025.02.20",
+    title: "포토부스 브랜드 추가 안내",
+    content:
+      "인생네컷, 하루필름, 포토이즘 등 신규 포토부스 브랜드가 추가되었습니다. 지도 검색에서 더 많은 매장을 찾아보세요.",
+  },
+  {
+    date: "2025.01.10",
+    title: "Picsel 서비스 정식 오픈",
+    content:
+      "안녕하세요, Picsel 팀입니다. 포토부스 사진을 더 오래, 더 특별하게 간직할 수 있는 Picsel이 정식 오픈되었습니다. 많은 이용 부탁드립니다!",
+  },
+];
+
 const faqItems: Record<string, { question: string; answer: string }[]> = {
   "지도 검색": [
     {
@@ -59,6 +80,7 @@ export default function ContactSection() {
   const [activeCategory, setActiveCategory] = useState(0);
   const [activeFaqTab, setActiveFaqTab] = useState("지도 검색");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openNotice, setOpenNotice] = useState<number | null>(null);
 
   return (
     <section className="bg-white pt-15 lg:pt-22.5">
@@ -203,6 +225,155 @@ export default function ContactSection() {
                   ))}
                 </motion.div>
               </AnimatePresence>
+            </motion.div>
+          )}
+
+          {activeCategory === 1 && (
+            <motion.div
+              key="notice"
+              className="py-8 lg:py-10"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <div className="space-y-2">
+                {noticeItems.map((item, i) => (
+                  <div key={i} className="border-border rounded-3 overflow-hidden border">
+                    <button
+                      onClick={() => setOpenNotice(openNotice === i ? null : i)}
+                      className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-gray-50 lg:px-8 lg:py-6"
+                    >
+                      <div className="flex items-center gap-3">
+                        <span className="text-text-gray shrink-0 text-[12px] lg:text-[13px]">
+                          {item.date}
+                        </span>
+                        <span className="text-text-primary text-[14px] lg:text-[16px]">
+                          {item.title}
+                        </span>
+                      </div>
+                      <motion.svg
+                        className="text-text-gray ml-4 h-4.5 w-4.5 shrink-0 lg:h-5 lg:w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        animate={{
+                          rotate: openNotice === i ? 180 : 0,
+                        }}
+                        transition={{
+                          duration: 0.25,
+                          ease: [0.25, 0.1, 0.25, 1],
+                        }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </motion.svg>
+                    </button>
+                    <AnimatePresence>
+                      {openNotice === i && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{
+                            duration: 0.25,
+                            ease: [0.25, 0.1, 0.25, 1],
+                          }}
+                          className="overflow-hidden"
+                        >
+                          <div className="text-text-secondary px-5 pb-4 text-[13px] leading-5.5 lg:px-8 lg:pb-6 lg:text-[14px] lg:leading-6">
+                            {item.content}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {activeCategory === 2 && (
+            <motion.div
+              key="inquiry"
+              className="py-8 lg:py-10"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              <div className="rounded-4 border-border border p-6 lg:p-10">
+                <h3 className="text-text-primary text-[18px] font-bold lg:text-[22px]">
+                  1:1 문의하기
+                </h3>
+                <p className="text-text-secondary mt-2 text-[13px] leading-5.5 lg:text-[14px] lg:leading-6">
+                  픽셀 이용 중 불편한 점이나 궁금한 사항이 있다면 아래 방법으로 문의해주세요.
+                  <br />
+                  확인 후 빠르게 답변드리겠습니다.
+                </p>
+
+                <div className="mt-6 space-y-4 lg:mt-8">
+                  <div className="rounded-3 flex items-center gap-4 bg-[#F8F8F8] p-4 lg:p-6">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-black lg:h-12 lg:w-12">
+                      <svg
+                        className="h-5 w-5 text-white lg:h-6 lg:w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-text-primary text-[14px] font-medium lg:text-[16px]">
+                        이메일 문의
+                      </p>
+                      <p className="text-primary mt-0.5 text-[13px] font-medium lg:text-[14px]">
+                        picsel.team@gmail.com
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-3 flex items-center gap-4 bg-[#F8F8F8] p-4 lg:p-6">
+                    <div className="bg-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full lg:h-12 lg:w-12">
+                      <svg
+                        className="h-5 w-5 text-white lg:h-6 lg:w-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-text-primary text-[14px] font-medium lg:text-[16px]">
+                        구글폼 문의
+                      </p>
+                      <p className="text-text-secondary mt-0.5 text-[12px] lg:text-[13px]">
+                        자세한 내용을 작성하여 문의할 수 있습니다
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-text-gray mt-5 text-[12px] lg:mt-6 lg:text-[13px]">
+                  * 문의 접수 후 영업일 기준 1~2일 내 답변드립니다.
+                </p>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
