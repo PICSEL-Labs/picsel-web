@@ -1,3 +1,7 @@
+"use client";
+
+import ScrollReveal from "./ScrollReveal";
+
 const painpoints = [
   { emoji: "😣", text: "현재 촬영 가능한 프레임이\n무엇인지 모르겠어요", highlight: "" },
   { emoji: "😢", text: "내가 원하는 브랜드 매장을\n", highlight: "한눈에 찾기 어려워요" },
@@ -15,26 +19,28 @@ export default function PainpointSection() {
 
   return (
     <section className="overflow-hidden bg-linear-to-b from-[#333333] to-white py-10 lg:py-15">
-      <div className="relative">
-        <div className="animate-scroll flex w-max gap-4 lg:gap-6">
-          {doubled.map((item, i) => (
-            <div
-              key={i}
-              className="bg-bg-card rounded-5 flex h-35 w-60 shrink-0 flex-col items-center justify-center px-4 lg:h-42 lg:w-76.25 lg:px-6"
-            >
-              <div className="rounded-2.5 mb-2 flex h-9 w-9 items-center justify-center bg-[#2C2C2E] text-[20px] lg:h-10 lg:w-10 lg:text-[22px]">
-                {item.emoji}
+      <ScrollReveal distance={60} duration={0.8}>
+        <div className="relative">
+          <div className="animate-scroll flex w-max gap-4 lg:gap-6">
+            {doubled.map((item, i) => (
+              <div
+                key={i}
+                className="bg-bg-card rounded-5 flex h-35 w-60 shrink-0 flex-col items-center justify-center px-4 lg:h-42 lg:w-76.25 lg:px-6"
+              >
+                <div className="rounded-2.5 mb-2 flex h-9 w-9 items-center justify-center bg-[#2C2C2E] text-[20px] lg:h-10 lg:w-10 lg:text-[22px]">
+                  {item.emoji}
+                </div>
+                <p className="text-text-light-gray text-center text-[12px] leading-5 whitespace-pre-line lg:text-[14px] lg:leading-6">
+                  {item.text}
+                  {item.highlight && (
+                    <span className="text-primary font-semibold">{item.highlight}</span>
+                  )}
+                </p>
               </div>
-              <p className="text-text-light-gray text-center text-[12px] leading-5 whitespace-pre-line lg:text-[14px] lg:leading-6">
-                {item.text}
-                {item.highlight && (
-                  <span className="text-primary font-semibold">{item.highlight}</span>
-                )}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }
