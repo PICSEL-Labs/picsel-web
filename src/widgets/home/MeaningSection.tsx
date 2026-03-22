@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import Container from "./Container";
-import TwinkleStar from "./TwinkleStar";
-import StaggerContainer, { staggerChildVariants } from "./StaggerContainer";
+import { Container, TwinkleStar, StaggerContainer, staggerChildVariants } from "@shared/ui";
 
 export default function MeaningSection() {
   return (

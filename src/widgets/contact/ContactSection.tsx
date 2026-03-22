@@ -2,79 +2,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Container from "./Container";
-import ScrollReveal from "./ScrollReveal";
-import StaggerContainer, { staggerChildVariants } from "./StaggerContainer";
-
-const categoryTabs = ["FAQ", "공지사항", "1:1 문의"];
-const faqTabs = ["지도 검색", "업로드", "찜한 브랜드", "픽셀북", "계정", "기타/제휴"];
-
-const noticeItems = [
-  {
-    date: "2025.03.15",
-    title: "Picsel v1.2.0 업데이트 안내",
-    content:
-      "앨범에서 업로드 기능이 추가되었습니다. 이제 QR 스캔 없이도 갤러리에서 직접 사진을 업로드할 수 있습니다. 또한 픽셀북 공유 기능이 개선되어 더 편리하게 친구들과 공유할 수 있습니다.",
-  },
-  {
-    date: "2025.02.20",
-    title: "포토부스 브랜드 추가 안내",
-    content:
-      "인생네컷, 하루필름, 포토이즘 등 신규 포토부스 브랜드가 추가되었습니다. 지도 검색에서 더 많은 매장을 찾아보세요.",
-  },
-  {
-    date: "2025.01.10",
-    title: "Picsel 서비스 정식 오픈",
-    content:
-      "안녕하세요, Picsel 팀입니다. 포토부스 사진을 더 오래, 더 특별하게 간직할 수 있는 Picsel이 정식 오픈되었습니다. 많은 이용 부탁드립니다!",
-  },
-];
-
-const faqItems: Record<string, { question: string; answer: string }[]> = {
-  "지도 검색": [
-    {
-      question: "픽셀 지도 매장 정보가 실제와 다릅니다.",
-      answer:
-        "매장 정보는 주기적으로 업데이트되고 있습니다. 오류를 발견하시면 문의하기를 통해 알려주세요.",
-    },
-    {
-      question: "찾는 매장이 검색결과에 나오지 않아요.",
-      answer:
-        "현재 서비스 중인 포토부스 브랜드를 기준으로 매장 정보를 제공하고 있습니다. 누락된 매장은 문의를 통해 요청해주세요.",
-    },
-  ],
-  업로드: [
-    {
-      question: "QR 업로드가 되지 않아요.",
-      answer:
-        "카메라 접근 권한을 확인해주세요. 설정에서 픽셀 앱의 카메라 권한을 허용해주시면 됩니다.",
-    },
-  ],
-  "찜한 브랜드": [
-    {
-      question: "찜한 브랜드는 어떻게 관리하나요?",
-      answer: "마이페이지에서 찜한 브랜드를 확인하고 관리할 수 있습니다.",
-    },
-  ],
-  픽셀북: [
-    {
-      question: "픽셀북은 몇 개까지 만들 수 있나요?",
-      answer: "픽셀북은 제한 없이 원하는 만큼 만들 수 있습니다.",
-    },
-  ],
-  계정: [
-    {
-      question: "회원 탈퇴는 어떻게 하나요?",
-      answer: "마이페이지 > 설정 > 회원 탈퇴에서 진행할 수 있습니다.",
-    },
-  ],
-  "기타/제휴": [
-    {
-      question: "제휴 문의는 어떻게 하나요?",
-      answer: "picsel.team@gmail.com으로 문의해주세요.",
-    },
-  ],
-};
+import { Container, ScrollReveal, StaggerContainer, staggerChildVariants } from "@shared/ui";
+import { CATEGORY_TABS, FAQ_TABS, NOTICE_ITEMS, FAQ_ITEMS } from "@shared/constants/contact-data";
 
 export default function ContactSection() {
   const [activeCategory, setActiveCategory] = useState(0);
@@ -119,7 +48,7 @@ export default function ContactSection() {
       <Container>
         {/* Category Tabs */}
         <div className="flex justify-center gap-2 pt-8 lg:gap-3 lg:pt-12">
-          {categoryTabs.map((tab, i) => (
+          {CATEGORY_TABS.map((tab, i) => (
             <button
               key={tab}
               onClick={() => setActiveCategory(i)}
@@ -146,7 +75,7 @@ export default function ContactSection() {
             >
               {/* FAQ Sub Tabs */}
               <div className="border-border flex overflow-x-auto border-b-2">
-                {faqTabs.map((tab) => (
+                {FAQ_TABS.map((tab) => (
                   <button
                     key={tab}
                     onClick={() => {
@@ -181,7 +110,7 @@ export default function ContactSection() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
                 >
-                  {(faqItems[activeFaqTab] || []).map((item, i) => (
+                  {FAQ_ITEMS[activeFaqTab].map((item, i) => (
                     <div key={i} className="border-border rounded-3 overflow-hidden border">
                       <button
                         onClick={() => setOpenFaq(openFaq === i ? null : i)}
@@ -238,7 +167,7 @@ export default function ContactSection() {
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <div className="space-y-2">
-                {noticeItems.map((item, i) => (
+                {NOTICE_ITEMS.map((item, i) => (
                   <div key={i} className="border-border rounded-3 overflow-hidden border">
                     <button
                       onClick={() => setOpenNotice(openNotice === i ? null : i)}

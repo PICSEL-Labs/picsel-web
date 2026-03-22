@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import Container from "./Container";
-import TwinkleStar from "./TwinkleStar";
+import { Container, TwinkleStar } from "@shared/ui";
 
 export default function MainBannerSection() {
   return (

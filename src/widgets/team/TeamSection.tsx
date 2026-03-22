@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import Container from "./Container";
-import ScrollReveal from "./ScrollReveal";
-import StaggerContainer, { staggerChildVariants } from "./StaggerContainer";
+import { Container, ScrollReveal, StaggerContainer, staggerChildVariants } from "@shared/ui";
 
 const teamMembers = [
   {

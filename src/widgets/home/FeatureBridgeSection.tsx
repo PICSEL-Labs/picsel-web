@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import Container from "./Container";
-import StaggerContainer, { staggerChildVariants } from "./StaggerContainer";
+import { Container, StaggerContainer, staggerChildVariants } from "@shared/ui";
 
 export default function FeatureBridgeSection() {
   return (

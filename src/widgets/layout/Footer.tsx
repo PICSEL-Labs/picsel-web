@@ -1,4 +1,4 @@
-import Container from "./Container";
+import { Container } from "@shared/ui";
 
 export default function Footer() {
   return (

@@ -4,17 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
+import { NAV_ITEMS } from "@shared/constants/navigation";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  const navItems = [
-    { label: "서비스 소개", href: "/" },
-    { label: "주요 기능", href: "/features" },
-    { label: "팀원 소개", href: "/team" },
-    { label: "문의하기", href: "/contact" },
-  ];
 
   return (
     <nav className="fixed top-0 right-0 left-0 z-50 bg-black/80 px-(--spacing-page) backdrop-blur-md transition-all duration-300 lg:px-(--spacing-page-lg)">
@@ -34,7 +28,7 @@ export default function Navbar() {
 
         {/* Desktop Nav Links */}
         <div className="hidden items-center gap-8 lg:flex">
-          {navItems.map((item) => (
+          {NAV_ITEMS.map((item) => (
             <Link
               key={item.label}
               href={item.href}
@@ -86,7 +80,7 @@ export default function Navbar() {
             transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
           >
             <div className="space-y-1 px-6 py-4">
-              {navItems.map((item, i) => (
+              {NAV_ITEMS.map((item, i) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, x: -16 }}

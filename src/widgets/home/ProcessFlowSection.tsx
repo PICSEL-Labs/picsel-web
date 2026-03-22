@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import Container from "./Container";
-import ScrollReveal from "./ScrollReveal";
+import { Container, ScrollReveal } from "@shared/ui";
 
 export default function ProcessFlowSection() {
   const items = [

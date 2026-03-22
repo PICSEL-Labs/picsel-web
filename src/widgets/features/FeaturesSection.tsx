@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Container from "./Container";
-import TwinkleStar from "./TwinkleStar";
-import ScrollReveal from "./ScrollReveal";
-import StaggerContainer, { staggerChildVariants } from "./StaggerContainer";
+import {
+  Container,
+  TwinkleStar,
+  ScrollReveal,
+  StaggerContainer,
+  staggerChildVariants,
+} from "@shared/ui";
 
 const tabs = ["포토부스 탐색", "사진 업로드", "픽셀북"];
 

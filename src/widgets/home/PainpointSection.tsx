@@ -1,6 +1,6 @@
 "use client";
 
-import ScrollReveal from "./ScrollReveal";
+import { ScrollReveal } from "@shared/ui";
 
 const painpoints = [
   { emoji: "😣", text: "현재 촬영 가능한 프레임이\n무엇인지 모르겠어요", highlight: "" },
