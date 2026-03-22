@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import Container from "./Container";
+import ScrollReveal from "./ScrollReveal";
+import StaggerContainer, { staggerChildVariants } from "./StaggerContainer";
 
 const categoryTabs = ["FAQ", "공지사항", "1:1 문의"];
 const faqTabs = ["지도 검색", "업로드", "찜한 브랜드", "픽셀북", "계정", "기타/제휴"];
@@ -62,22 +65,32 @@ export default function ContactSection() {
       {/* Dark Banner */}
       <div className="bg-black">
         <Container className="flex flex-col items-center py-15 lg:py-20">
-          <div className="relative mb-4 h-40 w-50 lg:h-50 lg:w-65">
-            <div className="bg-primary/40 rounded-5 absolute top-2.5 left-10 h-9.5 w-12.5" />
-            <div className="bg-primary/30 rounded-4 absolute top-0 right-7.5 h-8 w-10.5" />
-            <div className="bg-primary/35 rounded-5 absolute right-5 bottom-5 h-10 w-13.75" />
-            <div className="bg-primary/25 rounded-4.5 absolute bottom-7.5 left-5 h-8.75 w-11.25" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="relative">
-                <div className="rounded-6 bg-primary/25 h-25 w-25 rotate-[8deg] lg:h-30 lg:w-30" />
-                <div className="rounded-6 bg-primary/15 absolute top-1 left-1 h-25 w-25 -rotate-[8deg] lg:h-30 lg:w-30" />
-                <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-[48px] lg:text-[56px]">
-                  ❓
+          <StaggerContainer staggerDelay={0.2} className="flex flex-col items-center">
+            <motion.div
+              className="relative mb-4 h-40 w-50 lg:h-50 lg:w-65"
+              variants={staggerChildVariants}
+            >
+              <div className="bg-primary/40 rounded-5 absolute top-2.5 left-10 h-9.5 w-12.5" />
+              <div className="bg-primary/30 rounded-4 absolute top-0 right-7.5 h-8 w-10.5" />
+              <div className="bg-primary/35 rounded-5 absolute right-5 bottom-5 h-10 w-13.75" />
+              <div className="bg-primary/25 rounded-4.5 absolute bottom-7.5 left-5 h-8.75 w-11.25" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                <div className="relative">
+                  <div className="rounded-6 bg-primary/25 h-25 w-25 rotate-[8deg] lg:h-30 lg:w-30" />
+                  <div className="rounded-6 bg-primary/15 absolute top-1 left-1 h-25 w-25 -rotate-[8deg] lg:h-30 lg:w-30" />
+                  <div className="absolute top-1/2 left-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-[48px] lg:text-[56px]">
+                    ❓
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <h2 className="text-primary text-[28px] font-bold lg:text-[36px]">PICSEL 문의</h2>
+            </motion.div>
+            <motion.h2
+              className="text-primary text-[28px] font-bold lg:text-[36px]"
+              variants={staggerChildVariants}
+            >
+              PICSEL 문의
+            </motion.h2>
+          </StaggerContainer>
         </Container>
       </div>
 
@@ -99,84 +112,122 @@ export default function ContactSection() {
           ))}
         </div>
 
-        {activeCategory === 0 && (
-          <div className="py-8 lg:py-10">
-            <div className="border-border flex overflow-x-auto border-b-2">
-              {faqTabs.map((tab) => (
-                <button
-                  key={tab}
-                  onClick={() => {
-                    setActiveFaqTab(tab);
-                    setOpenFaq(null);
-                  }}
-                  className={`relative min-w-fit flex-1 px-2 py-3 text-center text-[12px] font-medium whitespace-nowrap transition-all lg:py-4 lg:text-[14px] ${
-                    activeFaqTab === tab
-                      ? "text-primary"
-                      : "text-text-gray hover:text-text-secondary"
-                  }`}
-                >
-                  {tab}
-                  {activeFaqTab === tab && (
-                    <div className="bg-primary absolute right-0 -bottom-0.5 left-0 h-0.5" />
-                  )}
-                </button>
-              ))}
-            </div>
-
-            <div className="mt-4 space-y-2 lg:mt-6">
-              {(faqItems[activeFaqTab] || []).map((item, i) => (
-                <div key={i} className="border-border rounded-3 overflow-hidden border">
+        <AnimatePresence mode="wait">
+          {activeCategory === 0 && (
+            <motion.div
+              key="faq"
+              className="py-8 lg:py-10"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            >
+              {/* FAQ Sub Tabs */}
+              <div className="border-border flex overflow-x-auto border-b-2">
+                {faqTabs.map((tab) => (
                   <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-gray-50 lg:px-8 lg:py-6"
+                    key={tab}
+                    onClick={() => {
+                      setActiveFaqTab(tab);
+                      setOpenFaq(null);
+                    }}
+                    className={`relative min-w-fit flex-1 px-2 py-3 text-center text-[12px] font-medium whitespace-nowrap transition-colors lg:py-4 lg:text-[14px] ${
+                      activeFaqTab === tab
+                        ? "text-primary"
+                        : "text-text-gray hover:text-text-secondary"
+                    }`}
                   >
-                    <span className="text-text-primary text-[14px] lg:text-[16px]">
-                      {item.question}
-                    </span>
-                    <svg
-                      className={`text-text-gray ml-4 h-4.5 w-4.5 shrink-0 transition-transform lg:h-5 lg:w-5 ${openFaq === i ? "rotate-180" : ""}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
+                    {tab}
+                    {activeFaqTab === tab && (
+                      <motion.div
+                        className="bg-primary absolute right-0 -bottom-0.5 left-0 h-0.5"
+                        layoutId="faq-tab-indicator"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
                       />
-                    </svg>
+                    )}
                   </button>
-                  {openFaq === i && (
-                    <div className="text-text-secondary px-5 pb-4 text-[13px] leading-5.5 lg:px-8 lg:pb-6 lg:text-[14px] lg:leading-6">
-                      {item.answer}
+                ))}
+              </div>
+
+              {/* FAQ Items */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeFaqTab}
+                  className="mt-4 space-y-2 lg:mt-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  {(faqItems[activeFaqTab] || []).map((item, i) => (
+                    <div key={i} className="border-border rounded-3 overflow-hidden border">
+                      <button
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        className="flex w-full items-center justify-between px-5 py-4 text-left transition-colors hover:bg-gray-50 lg:px-8 lg:py-6"
+                      >
+                        <span className="text-text-primary text-[14px] lg:text-[16px]">
+                          {item.question}
+                        </span>
+                        <motion.svg
+                          className="text-text-gray ml-4 h-4.5 w-4.5 shrink-0 lg:h-5 lg:w-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          animate={{ rotate: openFaq === i ? 180 : 0 }}
+                          transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </motion.svg>
+                      </button>
+                      <AnimatePresence>
+                        {openFaq === i && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                            className="overflow-hidden"
+                          >
+                            <div className="text-text-secondary px-5 pb-4 text-[13px] leading-5.5 lg:px-8 lg:pb-6 lg:text-[14px] lg:leading-6">
+                              {item.answer}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  )}
-                </div>
-              ))}
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <ScrollReveal distance={30} duration={0.5}>
+          <div className="pb-12 lg:pb-16">
+            <div className="rounded-4 bg-[#F8F8F8] px-5 py-5 lg:px-10 lg:py-7">
+              <p className="text-text-secondary text-[13px] leading-5.5 lg:text-[14px] lg:leading-6">
+                픽셀 이용 중 불편한 점이나 궁금한 사항이 있다면 아래 구글폼을 작성하시거나,{" "}
+                <span className="text-primary font-medium">picsel.team@gmail.com</span> 으로
+                언제든지 문의주세요.
+                <br />
+                확인 후 빠르게 답변드리겠습니다.
+              </p>
+              <p className="text-text-secondary mt-3 text-[13px] lg:text-[14px]">
+                보내주신 의견을 바탕으로 더 나은 픽셀을 만들어가겠습니다!
+              </p>
+              <p className="text-text-secondary mt-3 text-[13px] lg:text-[14px]">
+                픽셀이 도움이 되셨다면 앱스토어에서 평점과 후기를 남겨주세요.
+                <br />
+                여러분의 관심과 응원이 픽셀에게 큰 힘이 됩니다. 감사합니다💗
+              </p>
             </div>
           </div>
-        )}
-
-        <div className="pb-12 lg:pb-16">
-          <div className="rounded-4 bg-[#F8F8F8] px-5 py-5 lg:px-10 lg:py-7">
-            <p className="text-text-secondary text-[13px] leading-5.5 lg:text-[14px] lg:leading-6">
-              픽셀 이용 중 불편한 점이나 궁금한 사항이 있다면 아래 구글폼을 작성하시거나,{" "}
-              <span className="text-primary font-medium">picsel.team@gmail.com</span> 으로 언제든지
-              문의주세요.
-              <br />
-              확인 후 빠르게 답변드리겠습니다.
-            </p>
-            <p className="text-text-secondary mt-3 text-[13px] lg:text-[14px]">
-              보내주신 의견을 바탕으로 더 나은 픽셀을 만들어가겠습니다!
-            </p>
-            <p className="text-text-secondary mt-3 text-[13px] lg:text-[14px]">
-              픽셀이 도움이 되셨다면 앱스토어에서 평점과 후기를 남겨주세요.
-              <br />
-              여러분의 관심과 응원이 픽셀에게 큰 힘이 됩니다. 감사합니다💗
-            </p>
-          </div>
-        </div>
+        </ScrollReveal>
       </Container>
     </section>
   );
