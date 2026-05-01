@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
@@ -11,31 +12,30 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed top-0 right-0 left-0 z-50 bg-black/80 px-(--spacing-page) backdrop-blur-md transition-all duration-300 lg:px-(--spacing-page-lg)">
+    <nav className="bg-bg-dark fixed top-0 right-0 left-0 z-50 px-(--spacing-page) transition-all duration-300 lg:px-(--spacing-page-lg)">
       <div className="h-navbar lg:h-navbar-lg mx-auto flex w-full items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-1.5">
-          <svg width="20" height="28" viewBox="0 0 20 28" fill="none">
-            <path
-              d="M10 0C10.5 8 14 12 20 14C14 16 10.5 20 10 28C9.5 20 6 16 0 14C6 12 9.5 8 10 0Z"
-              fill="#FF2D78"
-            />
-          </svg>
-          <span className="text-primary text-[20px] font-extrabold tracking-tight lg:text-[22px]">
-            PICSEL
-          </span>
+        {/* Logo — Figma: 134×42 wordmark */}
+        <Link href="/" className="flex items-center" aria-label="PICSEL 홈">
+          <Image
+            src="/brand/logo.png"
+            alt="PICSEL"
+            width={134}
+            height={42}
+            priority
+            className="h-7 w-auto lg:h-[42px]"
+          />
         </Link>
 
         {/* Desktop Nav Links */}
-        <div className="hidden items-center gap-8 lg:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className={`text-[16px] font-medium transition-colors ${
+              className={`px-4 py-4 text-[16px] font-bold transition-colors ${
                 pathname === item.href
-                  ? "text-text-white"
-                  : "text-text-white/80 hover:text-text-white"
+                  ? "text-primary font-extrabold"
+                  : "hover:text-primary text-white"
               }`}
             >
               {item.label}
@@ -94,10 +94,10 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block py-3 text-[16px] font-medium transition-colors ${
+                    className={`block py-3 text-[16px] font-bold transition-colors ${
                       pathname === item.href
-                        ? "text-primary"
-                        : "text-text-white/80 hover:text-text-white"
+                        ? "text-primary font-extrabold"
+                        : "hover:text-primary text-white"
                     }`}
                   >
                     {item.label}

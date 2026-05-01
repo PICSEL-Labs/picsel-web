@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import {
   MainBannerSection,
-  MeaningSection,
   PainpointSection,
   EmpathySection,
-  ProcessFlowSection,
-  AppealSection,
   FeatureBridgeSection,
+  ProcessFlowSection,
+  FaqSection,
+  AppealSection,
 } from "@widgets/home";
 import { PAGE_METADATA } from "@shared/constants/metadata";
 
@@ -24,12 +24,12 @@ export default function IntroPage() {
   return (
     <>
       <MainBannerSection />
-      <MeaningSection />
       <PainpointSection />
       <EmpathySection />
-      <ProcessFlowSection />
-      <AppealSection />
       <FeatureBridgeSection />
+      <ProcessFlowSection />
+      <FaqSection />
+      <AppealSection />
     </>
   );
 }

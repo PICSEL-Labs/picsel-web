@@ -1,46 +1,111 @@
 "use client";
 
-import { ScrollReveal } from "@shared/ui";
+import { motion } from "motion/react";
+import { Container, ScrollReveal } from "@shared/ui";
 
-const painpoints = [
-  { emoji: "😣", text: "현재 촬영 가능한 프레임이\n무엇인지 모르겠어요", highlight: "" },
-  { emoji: "😢", text: "내가 원하는 브랜드 매장을\n", highlight: "한눈에 찾기 어려워요" },
-  { emoji: "🤔", text: "언제 어디서 찍었는지\n", highlight: "기억이 안 나요" },
+interface PainpointCard {
+  iconAlt: string;
+  body: { text: string; highlight?: boolean }[];
+}
+
+const PAINPOINT_CARDS: PainpointCard[] = [
   {
-    emoji: "😮‍💨",
-    text: "앨범에서 네컷사진을 찾기 번거로워서\n",
-    highlight: "결국 다시 꺼내보지 않게 돼요",
+    iconAlt: "프레임 모름",
+    body: [{ text: "현재 촬영 가능한 프레임이\n무엇인지 모르겠어요" }],
   },
-  { emoji: "😞", text: "보정이나 프레임 선택이\n아쉬워요", highlight: "" },
+  {
+    iconAlt: "브랜드 검색",
+    body: [
+      { text: "하루필름, 인생네컷, 포토그레이 등\n내가 원하는 브랜드의 매장을\n" },
+      { text: "한눈에 찾기 어려워요", highlight: true },
+    ],
+  },
+  {
+    iconAlt: "촬영 기억",
+    body: [
+      { text: "포토시그니처에서 찍었던 이 네컷사진··\n언제 어디서 찍었는지\n" },
+      { text: "기억이 안 나요", highlight: true },
+    ],
+  },
+  {
+    iconAlt: "앨범 정리",
+    body: [
+      { text: "앨범에서 네컷사진을\n찾기 번거로워서\n" },
+      { text: "결국 다시 꺼내보지 않게 돼요", highlight: true },
+    ],
+  },
+  {
+    iconAlt: "보정 아쉬움",
+    body: [{ text: "보정이나 프레임 선택이\n아쉬워요" }],
+  },
 ];
 
 export default function PainpointSection() {
-  const doubled = [...painpoints, ...painpoints];
-
   return (
-    <section className="overflow-hidden bg-linear-to-b from-[#333333] to-white py-10 lg:py-15">
-      <ScrollReveal distance={60} duration={0.8}>
-        <div className="relative">
-          <div className="animate-scroll flex w-max gap-4 lg:gap-6">
-            {doubled.map((item, i) => (
-              <div
-                key={i}
-                className="bg-bg-card rounded-5 flex h-35 w-60 shrink-0 flex-col items-center justify-center px-4 lg:h-42 lg:w-76.25 lg:px-6"
-              >
-                <div className="rounded-2.5 mb-2 flex h-9 w-9 items-center justify-center bg-[#2C2C2E] text-[20px] lg:h-10 lg:w-10 lg:text-[22px]">
-                  {item.emoji}
-                </div>
-                <p className="text-text-light-gray text-center text-[12px] leading-5 whitespace-pre-line lg:text-[14px] lg:leading-6">
-                  {item.text}
-                  {item.highlight && (
-                    <span className="text-primary font-semibold">{item.highlight}</span>
-                  )}
-                </p>
-              </div>
-            ))}
+    // Section 10 (4554:13674) — Figma: gap-[64px] pt-[80px] pb-[160px] px-[100px], bg solid (#111114)
+    <section className="bg-bg-dark relative w-full overflow-hidden">
+      <Container className="flex flex-col items-center gap-10 pt-20 pb-30 lg:gap-16 lg:pt-20 lg:pb-40">
+        {/* H2 (4554:13675~76) — NanumSquare ExtraBold 40px leading-[1.4], 두 줄 색상 분리 */}
+        <ScrollReveal distance={40} duration={0.7}>
+          <h2 className="text-center text-[26px] leading-[1.4] font-extrabold whitespace-nowrap sm:text-[32px] lg:text-[40px]">
+            <span className="block text-pink-50">그때 찍은 네컷사진,</span>
+            <span className="text-primary block">왜 다시 찾기 힘들까요?</span>
+          </h2>
+        </ScrollReveal>
+
+        {/* Painpoint cards (4554:13677) — Figma: flex gap-[48px] items-start justify-center
+            모바일: 가로 스크롤 / 데스크탑: 5-column */}
+        <div className="w-full">
+          <div className="-mx-(--spacing-page) flex items-start gap-4 overflow-x-auto px-(--spacing-page) pb-2 lg:mx-0 lg:justify-center lg:gap-12 lg:overflow-visible lg:px-10">
+            {PAINPOINT_CARDS.map((card, i) => {
+              const isFaded = i === 0 || i === PAINPOINT_CARDS.length - 1;
+              return (
+                <motion.div
+                  key={i}
+                  className={`flex w-[220px] shrink-0 flex-col items-center justify-center gap-2 self-stretch rounded-[16px] bg-white px-6 pt-8 pb-10 shadow-[0_-2px_8px_rgba(0,0,0,0.1),inset_0_-2px_8px_rgba(0,0,0,0.05),inset_2px_4px_8px_rgba(255,255,255,0.25)] lg:w-[260px] ${
+                    isFaded ? "lg:opacity-30" : ""
+                  }`}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: isFaded ? 0.3 : 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: i * 0.1,
+                    ease: [0.25, 0.1, 0.25, 1],
+                  }}
+                >
+                  {/* TODO: 카드별 아이콘 에셋 (40x40) 업로드 후 <Image .../> 로 교체 */}
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-50">
+                    <span className="text-primary text-[18px]" aria-label={card.iconAlt}>
+                      ?
+                    </span>
+                  </div>
+                  {/* Text Content (w-[257px] text-center)
+                      Figma: 일반 줄 = Pretendard Regular #676b79 / 강조 줄 = NanumSquare ExtraBold #ff6c9a */}
+                  <p className="text-text-secondary mt-1 w-full text-center text-[14px] leading-[1.5] font-normal whitespace-pre-line lg:text-[16px]">
+                    {card.body.map((seg, j) => (
+                      <span
+                        key={j}
+                        className={seg.highlight ? "text-primary block font-extrabold" : undefined}
+                      >
+                        {seg.text}
+                      </span>
+                    ))}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
-      </ScrollReveal>
+
+        {/* Body para (4554:13698~99) — NanumSquare Bold 20px, 흰색, 자연 줄바꿈 */}
+        <ScrollReveal distance={30} duration={0.7} delay={0.2}>
+          <p className="mx-auto max-w-[1080px] text-center text-[16px] leading-[1.5] font-bold text-white lg:text-[20px]">
+            사진은 남겼지만 어디 있는지 몰라 다시 찾지 못하고, 정리되지 않은 기록은 결국 꺼내보지
+            않게 돼죠
+          </p>
+        </ScrollReveal>
+      </Container>
     </section>
   );
 }
