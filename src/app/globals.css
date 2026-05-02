@@ -1,87 +1,236 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #FF2D78;
-  --color-primary-light: #FF6BA0;
-  --color-primary-dark: #E0195F;
-  --color-bg-dark: #111111;
-  --color-bg-darker: #0A0A0A;
-  --color-bg-card: #1C1C1E;
+  /* ==========================================
+   * PICSEL 디자인 시스템
+   * Figma 디자인 토큰 기반 테마 설정
+   * ========================================== */
+
+  /* --- 브랜드 컬러 (Figma 토큰 기준) --- */
+  /* 서비스 주요 액센트 컬러 (핑크 계열) */
+  --color-primary: #ff6c9a; /* surface/brand/primary */
+  --color-primary-strong: #fb437d; /* texticon/onnormal/primary-high */
+  --color-primary-light: #ff6ba0;
+  --color-primary-dark: #e0195f;
+
+  /* 핑크 계조 (배경/장식용) */
+  --color-pink-50: #ffeef4;
+  --color-pink-100: #fedee8;
+  --color-pink-200: #fecddd;
+
+  /* --- 배경 컬러 --- */
+  /* 다크 테마 기반 배경색 */
+  --color-bg-dark: #111114;
+  --color-bg-darker: #0a0a0a;
+  --color-bg-card: #1c1c1e;
+
+  /* --- 텍스트 컬러 --- */
   --color-text-primary: #111111;
-  --color-text-secondary: #666666;
-  --color-text-white: #FFFFFF;
+  --color-text-secondary: #676b79;
+  --color-text-strong: #26272c;
+  --color-text-white: #ffffff;
   --color-text-gray: #999999;
-  --color-text-light-gray: #BBBBBB;
-  --color-border: #E5E5E5;
-  --color-border-dark: #2A2A2A;
-  --font-sans: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --color-text-light-gray: #bbbbbb;
+
+  /* --- 보더 컬러 --- */
+  --color-border: #e5e5e5;
+  --color-border-dark: #2a2a2a;
+
+  /* --- 타이포그래피 --- */
+  /* Figma 기본: 본문/타이틀 = NanumSquare, 버튼/네비/일부 라벨 = NanumSquareRound */
+  --font-sans:
+    "NanumSquare", "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-round: "NanumSquareRound", "NanumSquare", "Pretendard", system-ui, sans-serif;
+
+  /* --- 레이아웃 --- */
+  /* 페이지 양옆 패딩: 모바일 24px / 데스크탑(lg) 64px */
+  --spacing-page: 24px;
+  --spacing-page-lg: 64px;
+  /* Navbar 높이: 모바일 60px / 데스크탑(lg) 90px */
+  --height-navbar: 60px;
+  --height-navbar-lg: 90px;
+  /* Navbar 만큼의 상단 여백 (pt-navbar / pt-navbar-lg 대응) */
+  --spacing-navbar: 60px;
+  --spacing-navbar-lg: 90px;
 }
 
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
   font-weight: 400;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff")
+    format("woff");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff")
+    format("woff");
   font-weight: 600;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff")
+    format("woff");
   font-weight: 700;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Pretendard';
-  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff")
+    format("woff");
   font-weight: 800;
   font-style: normal;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+/* NanumSquare — Naver 공식 webfont (woff)
+   Figma 디자인의 본문/타이틀 기본 폰트. font-weight로 Light/Regular/Bold/ExtraBold 매핑 */
+@font-face {
+  font-family: "NanumSquare";
+  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareL.woff")
+    format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NanumSquare";
+  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareR.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NanumSquare";
+  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareB.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NanumSquare";
+  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquare/NanumSquareEB.woff")
+    format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* NanumSquareRound — Figma의 라운드 변형 (네비/버튼 라벨 일부) */
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareRound/NanumSquareRoundL.woff")
+    format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareRound/NanumSquareRoundR.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareRound/NanumSquareRoundB.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareRound/NanumSquareRoundEB.woff")
+    format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: var(--font-sans);
   color: var(--color-text-primary);
-  background: #000000;
+  /* Figma 루트 프레임(4278:41417) bg-white와 일치 — Painpoint 그라디언트가 transparent로
+     페이드되는 구간에서 노출되는 베이스 색을 흰색으로 맞춰 다음 핑크 섹션과의 전환을 자연스럽게 */
+  background: #ffffff;
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 3px;
+}
 
 .gradient-text {
-  background: linear-gradient(135deg, #FF2D78, #FF8FB5);
+  background: linear-gradient(135deg, #ff2d78, #ff8fb5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.9); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
 }
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
 @keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.animate-twinkle { animation: twinkle 2.5s ease-in-out infinite; }
-.animate-float { animation: float 3s ease-in-out infinite; }
-.animate-scroll { animation: scroll-left 25s linear infinite; }
-.animate-scroll:hover { animation-play-state: paused; }
+.animate-twinkle {
+  animation: twinkle 2.5s ease-in-out infinite;
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-scroll {
+  animation: scroll-left 25s linear infinite;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}

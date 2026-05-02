@@ -1,31 +1,35 @@
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import MeaningSection from "@/components/MeaningSection";
-import PainpointSection from "@/components/PainpointSection";
-import QuestionSection from "@/components/QuestionSection";
-import FeatureIconsSection from "@/components/FeatureIconsSection";
-import CTASection from "@/components/CTASection";
-import FeatureIntroSection from "@/components/FeatureIntroSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import TeamSection from "@/components/TeamSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+import {
+  MainBannerSection,
+  PainpointSection,
+  EmpathySection,
+  FeatureBridgeSection,
+  ProcessFlowSection,
+  FaqSection,
+  AppealSection,
+} from "@widgets/home";
+import { PAGE_METADATA } from "@shared/constants/metadata";
 
-export default function Home() {
+/** SEO: 홈 페이지 메타데이터 — title.template에 의해 'PICSEL - ...' 형태로 렌더링 */
+export const metadata: Metadata = {
+  title: PAGE_METADATA.home.title,
+  description: PAGE_METADATA.home.description,
+  openGraph: {
+    title: PAGE_METADATA.home.title,
+    description: PAGE_METADATA.home.description,
+  },
+};
+
+export default function IntroPage() {
   return (
-    <main>
-      <Navbar />
-      <HeroSection />
-      <MeaningSection />
+    <>
+      <MainBannerSection />
       <PainpointSection />
-      <QuestionSection />
-      <FeatureIconsSection />
-      <CTASection />
-      <FeatureIntroSection />
-      <FeaturesSection />
-      <TeamSection />
-      <ContactSection />
-      <Footer />
-    </main>
+      <EmpathySection />
+      <FeatureBridgeSection />
+      <ProcessFlowSection />
+      <FaqSection />
+      <AppealSection />
+    </>
   );
 }
