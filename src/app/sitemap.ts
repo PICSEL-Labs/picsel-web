@@ -7,7 +7,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@shared/constants/metadata";
 
-// TODO: 도메인 확정 후 SITE_URL 교체
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: SITE_URL, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },

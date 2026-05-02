@@ -10,7 +10,6 @@ import { generateWebAppJsonLd, generateOrganizationJsonLd } from "@shared/lib/se
  * - title.template: 서브 페이지 title에 ' | PICSEL' 자동 부착
  * - openGraph: 카카오톡/SNS 공유 시 표시되는 정보
  */
-// TODO: 도메인 확정 후 SITE_URL 교체
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {

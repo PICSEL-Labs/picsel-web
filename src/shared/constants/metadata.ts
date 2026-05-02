@@ -4,8 +4,7 @@
  * - SITE_URL은 sitemap.xml, robots.txt, JSON-LD 구조화 데이터에도 참조됨
  */
 
-// TODO: 도메인 확정 후 실제 URL로 교체
-export const SITE_URL = "https://picsel.app";
+export const SITE_URL = "https://picsel.co.kr";
 
 export const SITE_NAME = "PICSEL";
 
