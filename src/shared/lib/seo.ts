@@ -5,19 +5,28 @@
  * - 각 함수가 반환하는 객체를 JSON.stringify하여 <script type="application/ld+json">에 삽입
  */
 
-import { SITE_NAME, SITE_URL } from "@shared/constants/metadata";
+import {
+  SITE_NAME,
+  SITE_URL,
+  SITE_DESCRIPTION,
+  CONTACT_EMAIL,
+  INSTAGRAM_URL,
+  APP_STORE_URL,
+} from "@shared/constants/metadata";
 
-/** Google 검색에 앱 정보 표시 (WebApplication 스키마) */
+/** Google 검색에 앱 정보 표시 (WebApplication 스키마) — iOS 단독 출시 */
 export function generateWebAppJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: SITE_NAME,
-    description: "포토부스를 찾고-찍고-사진 보관까지 한번에!",
+    description: SITE_DESCRIPTION,
     applicationCategory: "PhotographyApplication",
-    operatingSystem: "iOS, Android",
-    // TODO: 도메인 확정 후 실제 URL로 교체
+    operatingSystem: "iOS",
     url: SITE_URL,
+    installUrl: APP_STORE_URL,
+    downloadUrl: APP_STORE_URL,
+    sameAs: [APP_STORE_URL],
     offers: {
       "@type": "Offer",
       price: "0",
@@ -32,9 +41,9 @@ export function generateOrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "Team PICSEL",
-    // TODO: 도메인 확정 후 실제 URL로 교체
     url: SITE_URL,
-    email: "picsel.team@gmail.com",
+    email: CONTACT_EMAIL,
+    sameAs: [INSTAGRAM_URL],
   };
 }
 

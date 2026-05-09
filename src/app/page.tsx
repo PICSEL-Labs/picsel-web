@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   MainBannerSection,
   PainpointSection,
@@ -8,18 +7,11 @@ import {
   FaqSection,
   AppealSection,
 } from "@widgets/home";
-import { PAGE_METADATA } from "@shared/constants/metadata";
 
-/** SEO: 홈 페이지 메타데이터 — title.template에 의해 'PICSEL - ...' 형태로 렌더링 */
-export const metadata: Metadata = {
-  title: PAGE_METADATA.home.title,
-  description: PAGE_METADATA.home.description,
-  openGraph: {
-    title: PAGE_METADATA.home.title,
-    description: PAGE_METADATA.home.description,
-  },
-};
-
+/**
+ * 홈 페이지 메타데이터는 layout.tsx의 default(SITE_TITLE / SITE_DESCRIPTION / OG)를 그대로 사용.
+ * 풀 타이틀이 이미 "픽셀 Picsel | 포토부스 검색 & 네컷사진 보관 앱" 형태라 template(`%s | PICSEL`) 미적용이 정답.
+ */
 export default function IntroPage() {
   return (
     <>
