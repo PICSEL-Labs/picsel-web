@@ -41,13 +41,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
-  // TODO: Search Console / 네이버 웹마스터도구 등록 후 발급되는 메타태그로 교체
-  // - google: picsel.team@gmail.com 계정으로 https://search.google.com/search-console 등록
-  // - naver:  you8753@naver.com 계정으로 https://searchadvisor.naver.com 등록
+  // 검색엔진 사이트 소유 확인
+  // - google: picsel.team@gmail.com / Google Search Console
+  // - naver:  you8753@naver.com / 네이버 웹마스터도구
   verification: {
-    // google: "TODO_GOOGLE_VERIFICATION_TOKEN",
+    google: "OWbWnR3SDLBR5jRi2ZkceRTlhXCfx1S0gFgk19Qvadc",
     other: {
-      // "naver-site-verification": "TODO_NAVER_VERIFICATION_TOKEN",
+      "naver-site-verification": "a8dfc0574b62684001c582c7df8c9f588e898f5e",
     },
   },
 };
