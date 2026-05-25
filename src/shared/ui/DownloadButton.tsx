@@ -13,6 +13,11 @@ const ASSET: Record<Variant, string> = {
   white: "/page_svg/download-btn-white.svg",
 };
 
+/**
+ * DownloadButton — App Store 다운로드 CTA 버튼
+ * - primary(핑크 배경) / white(흰 배경) 두 가지 variant
+ * - public/page_svg의 디자인 자산 SVG를 그대로 사용
+ */
 export default function DownloadButton({
   variant = "primary",
   className = "",

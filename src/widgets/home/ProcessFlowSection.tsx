@@ -10,24 +10,26 @@ const PROCESS_STEPS = [
   { step: 3, label: "보관할 픽셀북 선택" },
 ];
 
+/**
+ * ProcessFlowSection — 업로드 프로세스 안내 섹션
+ * 3단계 스텝 인디케이터(데스크탑 가로 / 모바일 세로) + 업로드 화면 목업
+ */
 export default function ProcessFlowSection() {
   return (
     <section className="relative w-full overflow-hidden bg-white">
       <Container className="flex flex-col items-center gap-16 pt-20 pb-20 lg:gap-21 lg:pt-40">
-        {/* Headline */}
         <ScrollReveal distance={40} duration={0.7}>
-          <h3 className="text-center text-[24px] leading-[1.5] font-bold sm:text-[28px] lg:text-[32px]">
+          <h3 className="text-center text-[24px] leading-normal font-bold sm:text-[28px] lg:text-[32px]">
             <span className="text-text-strong block">복잡한 과정 없이</span>
             <span className="text-primary-strong block">쉽고 빠른 업로드</span>
           </h3>
         </ScrollReveal>
 
-        {/* Step indicator */}
         <div className="flex w-full flex-col items-center gap-4 lg:flex-row lg:flex-wrap lg:justify-center lg:gap-x-7 lg:gap-y-0 lg:px-25">
           {PROCESS_STEPS.map((item, i) => (
             <div key={item.step} className="flex items-center gap-2 lg:gap-7">
               <motion.div
-                className="flex w-[160px] items-center justify-center gap-2"
+                className="flex w-40 items-center justify-center gap-2"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -41,11 +43,11 @@ export default function ProcessFlowSection() {
                 </span>
               </motion.div>
 
-              {/* Connector dotted line — only between, not after last */}
+              {/* 스텝 사이 점선 — 마지막 스텝 뒤에는 미표시 */}
               {i < PROCESS_STEPS.length - 1 && (
                 <span
                   aria-hidden
-                  className="hidden h-px w-[140px] lg:block"
+                  className="hidden h-px w-35 lg:block"
                   style={{
                     backgroundImage:
                       "repeating-linear-gradient(90deg, #ff6c9a 0 6px, transparent 6px 12px)",
@@ -56,7 +58,6 @@ export default function ProcessFlowSection() {
           ))}
         </div>
 
-        {/* Mockup */}
         <ScrollReveal distance={40} duration={0.7} delay={0.2}>
           <PhoneMockup screenLabel="업로드 화면" />
         </ScrollReveal>

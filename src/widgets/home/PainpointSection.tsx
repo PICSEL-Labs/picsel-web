@@ -40,12 +40,14 @@ const PAINPOINT_CARDS: PainpointCard[] = [
   },
 ];
 
+/**
+ * PainpointSection — 페인포인트 카드 섹션
+ * 사용자 불편 사례 5개를 카드로 표시(모바일 가로 스크롤 / 데스크탑 5-column)
+ */
 export default function PainpointSection() {
   return (
-    // Section 10 (4554:13674) — Figma: gap-[64px] pt-[80px] pb-[160px] px-[100px], bg solid (#111114)
     <section className="bg-bg-dark relative w-full overflow-hidden">
       <Container className="flex flex-col items-center gap-10 pt-20 pb-30 lg:gap-16 lg:pt-20 lg:pb-40">
-        {/* H2 (4554:13675~76) — NanumSquare ExtraBold 40px leading-[1.4], 두 줄 색상 분리 */}
         <ScrollReveal distance={40} duration={0.7}>
           <h2 className="text-center text-[26px] leading-[1.4] font-extrabold whitespace-nowrap sm:text-[32px] lg:text-[40px]">
             <span className="block text-pink-50">그때 찍은 네컷사진,</span>
@@ -53,8 +55,6 @@ export default function PainpointSection() {
           </h2>
         </ScrollReveal>
 
-        {/* Painpoint cards (4554:13677) — Figma: flex gap-[48px] items-start justify-center
-            모바일: 가로 스크롤 / 데스크탑: 5-column */}
         <div className="w-full">
           <div className="-mx-(--spacing-page) flex items-start gap-4 overflow-x-auto px-(--spacing-page) pb-2 lg:mx-0 lg:justify-center lg:gap-12 lg:overflow-visible lg:px-10">
             {PAINPOINT_CARDS.map((card, i) => {
@@ -62,7 +62,7 @@ export default function PainpointSection() {
               return (
                 <motion.div
                   key={i}
-                  className={`flex w-[220px] shrink-0 flex-col items-center justify-center gap-2 self-stretch rounded-[16px] bg-white px-6 pt-8 pb-10 shadow-[0_-2px_8px_rgba(0,0,0,0.1),inset_0_-2px_8px_rgba(0,0,0,0.05),inset_2px_4px_8px_rgba(255,255,255,0.25)] lg:w-[260px] ${
+                  className={`flex w-55 shrink-0 flex-col items-center justify-center gap-2 self-stretch rounded-2xl bg-white px-6 pt-8 pb-10 shadow-[0_-2px_8px_rgba(0,0,0,0.1),inset_0_-2px_8px_rgba(0,0,0,0.05),inset_2px_4px_8px_rgba(255,255,255,0.25)] lg:w-65 ${
                     isFaded ? "lg:opacity-30" : ""
                   }`}
                   initial={{ opacity: 0, y: 30 }}
@@ -74,15 +74,13 @@ export default function PainpointSection() {
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
                 >
-                  {/* TODO: 카드별 아이콘 에셋 (40x40) 업로드 후 <Image .../> 로 교체 */}
+                  {/* TODO: 카드별 아이콘 에셋(40x40) 업로드 후 <Image /> 로 교체 */}
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-50">
                     <span className="text-primary text-[18px]" aria-label={card.iconAlt}>
                       ?
                     </span>
                   </div>
-                  {/* Text Content (w-[257px] text-center)
-                      Figma: 일반 줄 = Pretendard Regular #676b79 / 강조 줄 = NanumSquare ExtraBold #ff6c9a */}
-                  <p className="text-text-secondary mt-1 w-full text-center text-[14px] leading-[1.5] font-normal whitespace-pre-line lg:text-[16px]">
+                  <p className="text-text-secondary mt-1 w-full text-center text-[14px] leading-normal font-normal whitespace-pre-line lg:text-[16px]">
                     {card.body.map((seg, j) => (
                       <span
                         key={j}
@@ -98,9 +96,8 @@ export default function PainpointSection() {
           </div>
         </div>
 
-        {/* Body para (4554:13698~99) — NanumSquare Bold 20px, 흰색, 자연 줄바꿈 */}
         <ScrollReveal distance={30} duration={0.7} delay={0.2}>
-          <p className="mx-auto max-w-[1080px] text-center text-[16px] leading-[1.5] font-bold text-white lg:text-[20px]">
+          <p className="mx-auto max-w-270 text-center text-[16px] leading-normal font-bold text-white lg:text-[20px]">
             사진은 남겼지만 어디 있는지 몰라 다시 찾지 못하고, 정리되지 않은 기록은 결국 꺼내보지
             않게 돼죠
           </p>

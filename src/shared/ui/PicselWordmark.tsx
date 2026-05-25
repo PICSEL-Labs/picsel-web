@@ -6,6 +6,10 @@ interface PicselWordmarkProps {
   priority?: boolean;
 }
 
+/**
+ * PicselWordmark — PICSEL 핑크 워드마크 이미지
+ * - PICSEL@4x.png 원본 비율(623:210) 유지하며 width prop으로 사이즈 조절
+ */
 export default function PicselWordmark({
   width = 623,
   className = "",

@@ -12,6 +12,12 @@ const TERM_LINKS = [
   { label: "개인정보 처리방침", href: "#" },
 ] as const;
 
+/**
+ * Footer — 전역 푸터
+ * - 데스크탑: 좌측 Contact / 우측 약관 가로 배치
+ * - 모바일: 상단 약관(구분자 |) / 하단 Contact 세로 배치
+ * - theme prop으로 light(흰 배경) / dark(검정 배경) 토글
+ */
 export default function Footer({ theme = "dark" }: FooterProps) {
   const isDark = theme === "dark";
 
