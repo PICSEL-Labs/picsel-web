@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="h-navbar lg:h-navbar-lg mx-auto flex w-full items-center justify-between py-4">
         <Link href="/" className="flex items-center" aria-label="PICSEL 홈">
           <Image
-            src="/brand/logo.png"
+            src="/page_svg/Logo.svg"
             alt="PICSEL"
             width={134}
             height={42}
