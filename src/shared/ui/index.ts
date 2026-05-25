@@ -1,5 +1,10 @@
 export { default as Container } from "./Container";
 export { default as DownloadButton } from "./DownloadButton";
+export { default as ListItem } from "./ListItem";
+export { default as PicselWordmark } from "./PicselWordmark";
 export { default as ScrollReveal } from "./ScrollReveal";
 export { default as StaggerContainer, staggerChildVariants } from "./StaggerContainer";
+export { default as Tab } from "./Tab";
+export { default as TabBar } from "./TabBar";
+export { default as Tag } from "./Tag";
 export { default as TwinkleStar } from "./TwinkleStar";
