@@ -14,15 +14,19 @@ const FAQ_ITEMS: FaqItem[] = [
   { question: "픽셀북에 사진을 추가하고 싶은데 어떻게 하나요?" },
 ];
 
+/**
+ * FaqSection — 자주 묻는 질문 섹션
+ * 상단 `?` 일러스트 + 헤드라인, 하단에 펼침 가능한 알약형 FAQ 리스트
+ */
 export default function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   return (
     <section className="bg-bg-dark relative w-full overflow-hidden">
       <Container className="flex flex-col items-center gap-10 pt-20 pb-20 lg:gap-15 lg:pt-40 lg:pb-30">
-        {/* Headline */}
         <ScrollReveal distance={40} duration={0.7}>
           <div className="flex flex-col items-center gap-6 lg:gap-8">
+            {/* TODO: 핑크 3D `?` 일러스트 자산 업로드 후 <Image /> 로 교체 */}
             <span
               aria-hidden
               className="text-primary text-[64px] leading-none font-extrabold lg:text-[80px]"

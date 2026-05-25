@@ -1,19 +1,27 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Container, StaggerContainer, TwinkleStar, staggerChildVariants } from "@shared/ui";
+import {
+  Container,
+  DownloadButton,
+  StaggerContainer,
+  TwinkleStar,
+  staggerChildVariants,
+} from "@shared/ui";
 
+/**
+ * AppealSection — 하단 클로징 CTA 섹션
+ * 중앙 트윙클 + 핑크 헤드라인 + 본문 + App Store 다운로드 버튼 구성
+ */
 export default function AppealSection() {
   return (
     <section className="bg-bg-dark relative w-full overflow-hidden">
       <Container className="flex flex-col items-center gap-10 pt-10 pb-30 text-center lg:gap-15 lg:pt-10 lg:pb-50">
         <StaggerContainer staggerDelay={0.2}>
-          {/* Star */}
           <motion.div className="mx-auto flex justify-center" variants={staggerChildVariants}>
             <TwinkleStar size={140} />
           </motion.div>
 
-          {/* Headline */}
           <motion.h2
             className="mt-10 text-[26px] leading-[1.4] font-extrabold text-white sm:text-[32px] lg:mt-15 lg:text-[40px]"
             variants={staggerChildVariants}
@@ -23,7 +31,6 @@ export default function AppealSection() {
             <span className="text-primary">더 잘 기억할 수 있도록</span>
           </motion.h2>
 
-          {/* Body */}
           <motion.p
             className="mt-6 text-[14px] leading-[1.6] font-bold text-pink-200 sm:text-[16px] lg:mt-10 lg:text-[20px]"
             variants={staggerChildVariants}
@@ -35,6 +42,13 @@ export default function AppealSection() {
             <br className="hidden sm:block" />
             함께 만들어봐요!
           </motion.p>
+
+          <motion.div
+            className="mt-10 flex justify-center lg:mt-15"
+            variants={staggerChildVariants}
+          >
+            <DownloadButton variant="primary" />
+          </motion.div>
         </StaggerContainer>
       </Container>
     </section>
