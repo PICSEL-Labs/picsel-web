@@ -4,16 +4,19 @@ import { motion } from "motion/react";
 import { Container, ScrollReveal } from "@shared/ui";
 
 interface PainpointCard {
+  icon: string;
   iconAlt: string;
   body: { text: string; highlight?: boolean }[];
 }
 
 const PAINPOINT_CARDS: PainpointCard[] = [
   {
+    icon: "😥",
     iconAlt: "프레임 모름",
     body: [{ text: "현재 촬영 가능한 프레임이\n무엇인지 모르겠어요" }],
   },
   {
+    icon: "😢",
     iconAlt: "브랜드 검색",
     body: [
       { text: "하루필름, 인생네컷, 포토그레이 등\n내가 원하는 브랜드의 매장을\n" },
@@ -21,6 +24,7 @@ const PAINPOINT_CARDS: PainpointCard[] = [
     ],
   },
   {
+    icon: "😣",
     iconAlt: "촬영 기억",
     body: [
       { text: "포토시그니처에서 찍었던 이 네컷사진··\n언제 어디서 찍었는지\n" },
@@ -28,6 +32,7 @@ const PAINPOINT_CARDS: PainpointCard[] = [
     ],
   },
   {
+    icon: "😳",
     iconAlt: "앨범 정리",
     body: [
       { text: "앨범에서 네컷사진을\n찾기 번거로워서\n" },
@@ -35,6 +40,7 @@ const PAINPOINT_CARDS: PainpointCard[] = [
     ],
   },
   {
+    icon: "😖",
     iconAlt: "보정 아쉬움",
     body: [{ text: "보정이나 프레임 선택이\n아쉬워요" }],
   },
@@ -74,12 +80,9 @@ export default function PainpointSection() {
                     ease: [0.25, 0.1, 0.25, 1],
                   }}
                 >
-                  {/* TODO: 카드별 아이콘 에셋(40x40) 업로드 후 <Image /> 로 교체 */}
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-pink-50">
-                    <span className="text-primary text-[18px]" aria-label={card.iconAlt}>
-                      ?
-                    </span>
-                  </div>
+                  <span className="text-[30px] leading-none" role="img" aria-label={card.iconAlt}>
+                    {card.icon}
+                  </span>
                   <p className="text-text-secondary mt-1 w-full text-center text-[14px] leading-normal font-normal whitespace-pre-line lg:text-[16px]">
                     {card.body.map((seg, j) => (
                       <span
