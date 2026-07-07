@@ -10,28 +10,31 @@ export default function EmpathySection() {
   return (
     <>
       <section className="bg-primary relative w-full overflow-hidden">
-        <Container className="relative flex flex-col items-center gap-20 py-25 lg:gap-20 lg:py-40">
-          {/* TODO: SVG 에셋 업로드 후 교체 */}
+        <Container className="relative flex min-h-70 flex-col items-center justify-center py-18 sm:min-h-76 lg:min-h-77 lg:py-0">
           <span
             aria-hidden
-            className="absolute top-[58%] left-[calc(50%-185px)] hidden h-0.75 w-48.5 -rotate-[0.3deg] rounded-full bg-pink-100/80 lg:block"
+            className="absolute top-[calc(50%+56px)] left-1/2 hidden h-1 w-35 -translate-x-26.5 -rotate-1 rounded-full bg-white/80 lg:block"
           />
-          {/* TODO: SVG 에셋 업로드 후 교체 */}
           <span
             aria-hidden
-            className="absolute top-[36%] left-[calc(50%+212px)] hidden h-3 w-3 rotate-45 bg-pink-100 lg:block"
+            className="absolute top-[calc(50%-70px)] left-[calc(50%+218px)] hidden h-3.5 w-1 rotate-24 rounded-full bg-white/90 lg:block"
+          />
+          <span
+            aria-hidden
+            className="absolute top-[calc(50%-58px)] left-[calc(50%+234px)] hidden h-2.5 w-1 rotate-72 rounded-full bg-white/90 lg:block"
+          />
+          <span
+            aria-hidden
+            className="absolute top-[calc(50%-44px)] left-[calc(50%+220px)] hidden h-1 w-2.5 -rotate-16 rounded-full bg-white/90 lg:block"
           />
 
           <ScrollReveal distance={40} duration={0.7}>
-            <h2 className="flex flex-col items-center gap-1 text-center leading-[1.4] font-extrabold whitespace-nowrap">
+            <h2 className="flex flex-col items-center gap-1.5 text-center leading-[1.35] font-extrabold whitespace-nowrap text-white">
               <span className="flex items-center text-[26px] sm:text-[32px] lg:text-[40px]">
-                <span className="text-pink-100">원하는 포토부스</span>
-                <span className="text-white">&nbsp;쉽게 찾고</span>
-                <span className="text-pink-200">,</span>
+                원하는 포토부스 쉽게 찾고,
               </span>
               <span className="flex items-center text-[26px] sm:text-[32px] lg:text-[40px]">
-                <span className="text-white">편하게 추억</span>
-                <span className="text-pink-100">하고 싶지 않으신가요?</span>
+                편하게 추억하고 싶지 않으신가요?
               </span>
             </h2>
           </ScrollReveal>
