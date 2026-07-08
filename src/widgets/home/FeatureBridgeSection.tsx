@@ -19,12 +19,19 @@ export default function FeatureBridgeSection() {
       <Container className="relative">
         <div className="flex flex-col items-center gap-12 pt-20 pb-30 lg:flex-row lg:justify-center lg:gap-30 lg:pt-20 lg:pb-50">
           <ScrollReveal direction="left" distance={50} duration={0.7}>
-            <div className="w-full max-w-83 text-center lg:text-left">
+            <div className="w-full max-w-83 text-center break-keep lg:text-left">
               <h3 className="text-[24px] leading-normal font-bold sm:text-[28px] lg:text-[32px]">
                 <span className="text-text-strong block">인생네컷, 하루필름 등</span>
                 <span className="text-text-strong block">한눈에 찾고 취향대로 탐색하는</span>
                 <span className="text-primary-strong block">포토부스 통합 지도</span>
               </h3>
+              <p className="text-text-secondary mt-6 text-[14px] leading-relaxed font-bold text-pretty sm:text-[16px] lg:mt-9 lg:text-[20px]">
+                모노맨션, 플랜비스튜디오, 픽닷을 포함한
+                <br />
+                약 200개의 포토부스 브랜드를 한데 모은 포토부스 통합 지도!
+                <br />
+                지도 위 포토부스만 빠르게 찾을 수 있어요
+              </p>
             </div>
           </ScrollReveal>
 
@@ -32,16 +39,6 @@ export default function FeatureBridgeSection() {
             <PhoneMockup screenLabel="통합 지도" />
           </ScrollReveal>
         </div>
-
-        <ScrollReveal distance={30} duration={0.7}>
-          <p className="text-text-secondary mx-auto max-w-150 pb-30 text-center text-[14px] leading-normal font-bold sm:text-[16px] lg:pb-60 lg:text-[20px]">
-            모노맨션, 플랜비스튜디오, 픽닷을 포함한
-            <br className="hidden sm:block" />
-            약 200개의 포토부스 브랜드를 한데 모은 포토부스 통합 지도!
-            <br className="hidden sm:block" />
-            지도 위 포토부스만 빠르게 찾을 수 있어요
-          </p>
-        </ScrollReveal>
 
         <div className="relative flex flex-col items-center gap-12 pb-30 lg:flex-row lg:justify-center lg:gap-30 lg:pb-50">
           {/* 데스크탑 한정 장식 — 기울어진 핑크 카드 4종 */}
@@ -59,7 +56,7 @@ export default function FeatureBridgeSection() {
           </ScrollReveal>
 
           <ScrollReveal direction="right" distance={50} duration={0.7} delay={0.15}>
-            <div className="relative z-10 w-full max-w-83 text-center lg:text-left">
+            <div className="relative z-10 w-full max-w-83 text-center break-keep lg:text-left">
               <h3 className="text-[24px] leading-normal font-bold sm:text-[28px] lg:text-[32px]">
                 <span className="text-text-strong block">모으고 기록해</span>
                 <span className="text-text-strong block">다시 꺼내보는</span>

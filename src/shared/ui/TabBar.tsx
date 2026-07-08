@@ -17,7 +17,10 @@ export default function TabBar({ items, value, onChange, className = "" }: TabBa
   return (
     <div
       role="tablist"
-      className={"relative flex items-center gap-2 border-b border-white/10" + (className ? " " + className : "")}
+      className={
+        "relative flex items-center gap-2 border-b border-white/10" +
+        (className ? " " + className : "")
+      }
     >
       {items.map((item) => (
         <Tab key={item} selected={item === value} onClick={() => onChange(item)}>

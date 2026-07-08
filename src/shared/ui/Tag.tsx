@@ -21,9 +21,7 @@ export default function Tag({ selected = false, onClick, children, className = "
       aria-pressed={selected}
       className={
         "rounded-full px-5 py-3 text-[14px] leading-none font-bold transition-colors " +
-        (selected
-          ? "bg-white text-primary"
-          : "bg-bg-card text-white hover:bg-white/15") +
+        (selected ? "text-primary bg-white" : "bg-bg-card text-white hover:bg-white/15") +
         (className ? " " + className : "")
       }
     >

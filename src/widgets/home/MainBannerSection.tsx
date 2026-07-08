@@ -38,7 +38,7 @@ export default function MainBannerSection() {
                 aria-hidden
                 width={64}
                 height={72}
-                className="absolute -top-7 -left-2 z-10 hidden h-12 w-auto lg:-top-9 lg:left-[calc(50%-140px)] lg:block lg:h-18"
+                className="absolute -top-7 -left-2 z-10 hidden h-12 w-auto lg:-top-11 lg:left-[calc(50%-120px)] lg:block lg:h-18"
               />
               <Image
                 src="/icon/icon-sparkle-single.png"
@@ -46,7 +46,7 @@ export default function MainBannerSection() {
                 aria-hidden
                 width={48}
                 height={48}
-                className="absolute top-[42%] right-6 z-10 hidden h-9 w-auto lg:top-[62px] lg:right-auto lg:left-[calc(50%+115px)] lg:block lg:h-12"
+                className="absolute top-[42%] right-6 z-10 hidden h-9 w-auto lg:top-12 lg:right-auto lg:left-[calc(50%+128px)] lg:block lg:h-12"
               />
 
               <motion.h1
